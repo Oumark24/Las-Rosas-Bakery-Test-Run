@@ -443,12 +443,176 @@
         </div>
         <div class="item">
           <div class="item-info"><h4>Iced Coffee</h4><p>House favorite, bold and smooth</p></div>
-          <div class="item-side"><span class="price">$3.00</span><button 
- </div>
+          <div class="item-side"><span class="price">$3.00</span><button class="add-btn" onclick="addItem('Iced Coffee',3.00)">Add</button></div>
+        </div>
       </div>
+      <div class="menu-cat" id="cakes">
+        <div class="item">
+          <div class="item-info"><h4>Custom Cake (small)</h4><p>Serves 8–10, call to place order</p></div>
+          <div class="item-side"><span class="price">from $35</span><button class="add-btn" onclick="addItem('Custom Cake (small)',35)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Party Platter</h4><p>Assorted pan dulce, serves 15+</p></div>
+          <div class="item-side"><span class="price">from $28</span><button class="add-btn" onclick="addItem('Party Platter',28)">Add</button></div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:30px; font-size:13px; color:var(--ink-soft);">Cash only in-store · A $1 container fee applies to cupcakes and cake slices</p>
+    <div class="menu-tabs" style="margin-top:36px;">
+      <div class="tab active" onclick="jumpCat('pan')">Pan Dulce</div>
+      <div class="tab" onclick="jumpCat('savory')">Savory</div>
+      <div class="tab" onclick="jumpCat('drinks')">Drinks</div>
+      <div class="tab" onclick="jumpCat('cakes')">Custom Cakes</div>
     </div>
   </div>
 </section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Take a Look</div>
+      <h2>From Our Case &amp; Kitchen</h2>
+    </div>
+    <div class="gallery-grid">
+      <figure class="g1"><img src="https://placehold.co/600x600/F0E6D8/5C4436?text=Pan+Dulce+Case" alt="Pan Dulce Case"><figcaption>Pan Dulce Case</figcaption></figure>
+      <figure class="g2"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Fresh+Churros" alt="Fresh Churros"><figcaption>Fresh Churros</figcaption></figure>
+      <figure class="g3"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Storefront" alt="Storefront"><figcaption>Storefront</figcaption></figure>
+      <figure class="g4"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Tres+Leches" alt="Tres Leches"><figcaption>Tres Leches</figcaption></figure>
+      <figure class="g5"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Custom+Cake" alt="Custom Cake"><figcaption>Custom Cake</figcaption></figure>
+      <figure class="g6"><img src="https://placehold.co/600x600/F0E6D8/5C4436?text=Tamales" alt="Tamales"><figcaption>Tamales</figcaption></figure>
+      <figure class="g7"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Morning+Bake" alt="Morning Bake"><figcaption>Morning Bake</figcaption></figure>
+      <figure class="g8"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Interior" alt="Interior"><figcaption>Interior</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Visit Rosa's</h2>
+      <p class="lead">Open around the clock in Sunset Park. Stop by for fresh pan dulce any hour, or call ahead for tamales, tortas, and custom cakes.</p>
+
+      <div class="contact-row">
+        <div class="ic">📍</div>
+        <div><h4>Address</h4><p>5824 4th Ave, Brooklyn, NY 11220</p></div>
+      </div>
+      <div class="contact-row">
+        <div class="ic">🕐</div>
+        <div><h4>Hours</h4><p>Open 24 Hours, 7 days a week</p></div>
+      </div>
+      <div class="contact-row">
+        <div class="ic">💵</div>
+        <div><h4>Payment</h4><p>Cash only</p></div>
+      </div>
+
+      <a href="tel:+17184921470" class="call-big">📞 (718) 492-1470</a>
+    </div>
+    <div class="map-box">
+      <iframe src="https://maps.google.com/maps?q=5824%204th%20Ave%2C%20Brooklyn%2C%20NY%2011220&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="social"><a href="#">Instagram</a></div>
+  <p>© 2026 Rosa's Bakery · 5824 4th Ave, Brooklyn, NY 11220 · (718) 492-1470</p>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart(false)"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <h3>Your Order</h3>
+    <button class="cart-close" onclick="toggleCart(false)">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <p class="cart-empty">Your cart is empty. Add something fresh!</p>
+  </div>
+  <div class="cart-foot">
+    <div class="cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+    <button class="checkout-btn" onclick="checkout()">Review &amp; Call to Order</button>
+    <p class="checkout-note">Online cart is for planning your order — checkout finalizes by phone.</p>
+  </div>
+</div>
+
+<a href="tel:+17184921470" class="mobile-call-bar">
+  <span class="pulse-dot"></span> 📞 Call Now to Order — (718) 492-1470
+</a>
+
+<script>
+  let cart = JSON.parse(localStorage.getItem('rosasCart') || '{}');
+
+  function saveCart(){
+    localStorage.setItem('rosasCart', JSON.stringify(cart));
+  }
+  function addItem(name, price){
+    if(cart[name]) cart[name].qty += 1;
+    else cart[name] = {price, qty:1};
+    saveCart();
+    renderCart();
+    toggleCart(true);
+  }
+  function changeQty(name, delta){
+    if(!cart[name]) return;
+    cart[name].qty += delta;
+    if(cart[name].qty <= 0) delete cart[name];
+    saveCart();
+    renderCart();
+  }
+  function renderCart(){
+    const itemsEl = document.getElementById('cartItems');
+    const keys = Object.keys(cart);
+    let count = 0, total = 0;
+    if(keys.length === 0){
+      itemsEl.innerHTML = '<p class="cart-empty">Your cart is empty. Add something fresh!</p>';
+    } else {
+      itemsEl.innerHTML = keys.map(name => {
+        const it = cart[name];
+        count += it.qty;
+        total += it.qty * it.price;
+        return `<div class="cart-line">
+          <div>
+            <div>${name}</div>
+            <div class="qty-ctrl">
+              <button onclick="changeQty('${name}',-1)">-</button>
+              <span>${it.qty}</span>
+              <button onclick="changeQty('${name}',1)">+</button>
+            </div>
+          </div>
+          <div>$${(it.qty*it.price).toFixed(2)}</div>
+        </div>`;
+      }).join('');
+    }
+    document.getElementById('cartCount').textContent = count;
+    document.getElementById('cartTotal').textContent = '$' + total.toFixed(2);
+  }
+  function toggleCart(open){
+    document.getElementById('cartDrawer').classList.toggle('open', open);
+    document.getElementById('cartOverlay').classList.toggle('open', open);
+  }
+  function checkout(){
+    if(Object.keys(cart).length === 0){ alert('Add an item first!'); return; }
+    let summary = 'Order summary:\n';
+    let total = 0;
+    for(const [name, it] of Object.entries(cart)){
+      summary += `${it.qty} x ${name} - $${(it.qty*it.price).toFixed(2)}\n`;
+      total += it.qty*it.price;
+    }
+    summary += `Total: $${total.toFixed(2)}\n\nCall (718) 492-1470 to place this order.`;
+    alert(summary);
+  }
+  renderCart();
+  function showCat(id){
+    document.querySelectorAll('.menu-cat').forEach(el => el.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.tab').forEach(el => {
+      el.classList.toggle('active', el.getAttribute('onclick').includes("'"+id+"'"));
+    });
+  }
+  function jumpCat(id){
+    document.getElementById('menu').scrollIntoView({behavior:'smooth'});
+    showCat(id);
+  }
+</script>
 
 </body>
 </html>
