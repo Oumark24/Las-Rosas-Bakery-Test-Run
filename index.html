@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rosa's Bakery | Sunset Park, Brooklyn</title>
 <meta name="description" content="Rosa's Bakery — a 24-hour Mexican bakery in Sunset Park, Brooklyn. Fresh conchas, churros, tres leches, tamales, and custom cakes daily.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌹</text></svg>">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+<link rel="apple-touch-icon" href="favicon-192x192.png">
 <meta property="og:title" content="Rosa's Bakery | Sunset Park, Brooklyn">
 <meta property="og:description" content="Fresh Mexican pan dulce, tamales, and custom cakes — open 24 hours at 5824 4th Ave, Brooklyn.">
 <meta property="og:type" content="restaurant.menu">
@@ -107,7 +108,6 @@
     font-size:22px; letter-spacing:0.5px;
     color:var(--rose-deep);
   }
-  .brand .dot{color:var(--marigold);}
   nav.links{display:flex; gap:28px; font-size:14px; font-weight:600; color:var(--ink-soft);}
   nav.links a:hover{color:var(--rose-deep);}
   .cart-btn{
@@ -342,7 +342,10 @@
 
 <header>
   <div class="nav wrap">
-    <div class="brand"><span class="dot">✿</span> Rosa's Bakery</div>
+    <div class="brand">
+      <img src="favicon-192x192.png" alt="Rosa's Bakery Logo" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      Rosa's Bakery
+    </div>
     <nav class="links">
       <a href="#about">Our Story</a>
       <a href="#menu">Menu</a>
@@ -440,6 +443,12 @@
         </div>
         <div class="item">
           <div class="item-info"><h4>Iced Coffee</h4><p>House favorite, bold and smooth</p></div>
-          <div class="item-side"><span class="price">$3.00</span><button class="add-btn" onclick="addItem('Iced Coffee',3.00)">Add</button></div>
-        </div>
-  
+          <div class="item-side"><span class="price">$3.00</span><button 
+ </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
