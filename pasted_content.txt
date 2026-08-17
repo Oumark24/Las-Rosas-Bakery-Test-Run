@@ -1,0 +1,374 @@
+/* CONTACT */
+  .contact{padding:80px 24px; background:var(--ink); color:var(--paper);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+  .contact h2{font-size:36px; margin-bottom:18px; color:var(--marigold);}
+  .contact p.lead{color:#e8dccf; line-height:1.7; margin-bottom:30px; font-size:16px;}
+  .contact-row{display:flex; gap:16px; align-items:flex-start; margin-bottom:22px;}
+  .contact-row .ic{
+    width:40px; height:40px; border-radius:50%; background:rgba(242,160,61,0.15);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--marigold); font-size:18px;
+  }
+  .contact-row h4{font-size:15px; margin-bottom:3px;}
+  .contact-row p, .contact-row a{color:#c9b9a9; font-size:14px;}
+  .call-big{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--marigold); color:var(--ink);
+    padding:16px 28px; border-radius:32px; font-weight:700; font-size:16px; margin-top:10px;
+  }
+  .map-box{
+    border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);
+  }
+  .map-box iframe{width:100%; height:100%; min-height:340px; border:0;}
+
+  footer{
+    background:var(--ink); color:#a89786; text-align:center;
+    padding:30px 24px; font-size:13px; border-top:1px solid rgba(255,255,255,0.08);
+  }
+  footer .social{display:flex; justify-content:center; gap:18px; margin-bottom:14px;}
+  footer .social a{color:var(--marigold); font-weight:600;}
+
+  /* CART DRAWER */
+  .cart-overlay{
+    position:fixed; inset:0; background:rgba(0,0,0,0.4);
+    display:none; z-index:100;
+  }
+  .cart-overlay.open{display:block;}
+  .cart-drawer{
+    position:fixed; top:0; right:-380px; width:360px; max-width:88vw; height:100%;
+    background:#fff; z-index:101; transition:right 0.3s ease;
+    display:flex; flex-direction:column; box-shadow:-10px 0 30px rgba(0,0,0,0.15);
+  }
+  .cart-drawer.open{right:0;}
+  .cart-head{
+    padding:22px; border-bottom:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .cart-head h3{color:var(--rose-deep);}
+  .cart-close{background:none; border:none; font-size:22px; cursor:pointer; color:var(--ink-soft);}
+  .cart-items{flex:1; overflow-y:auto; padding:18px 22px;}
+  .cart-empty{color:var(--ink-soft); font-size:14px; text-align:center; margin-top:40px;}
+  .cart-line{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:12px 0; border-bottom:1px solid var(--line); font-size:14px;
+  }
+  .cart-line .qty-ctrl{display:flex; align-items:center; gap:8px; margin-top:4px;}
+  .cart-line .qty-ctrl button{
+    width:22px; height:22px; border-radius:50%; border:1px solid var(--line); background:#fff; cursor:pointer;
+  }
+  .cart-foot{padding:20px 22px; border-top:1px solid var(--line);}
+  .cart-total{display:flex; justify-content:space-between; font-weight:700; font-size:16px; margin-bottom:14px;}
+  .checkout-btn{
+    width:100%; background:var(--rose-deep); color:#fff; border:none;
+    padding:14px; border-radius:30px; font-weight:700; font-size:15px; cursor:pointer;
+  }
+  .checkout-note{font-size:12px; color:var(--ink-soft); text-align:center; margin-top:10px;}
+
+  /* STICKY MOBILE CALL BAR */
+  .mobile-call-bar{
+    display:none;
+  }
+
+  @media (max-width:820px){
+    nav.links{display:none;}
+    .menu-toggle{display:block;}
+    .about{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:180px;}
+    .gallery-grid figure{grid-column:span 1 !important; grid-row:span 1 !important;}
+    .menu-cat.active{grid-template-columns:1fr;}
+
+    body{padding-bottom:74px;} /* room for sticky bar */
+    .mobile-call-bar{
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      position:fixed; left:0; right:0; bottom:0; z-index:120;
+      background:var(--rose-deep); color:#fff;
+      padding:16px 20px; font-weight:700; font-size:16px;
+      box-shadow:0 -6px 20px rgba(46,26,27,0.25);
+    }
+    .mobile-call-bar .pulse-dot{
+      width:9px; height:9px; border-radius:50%; background:var(--marigold);
+      animation:pulse 1.6s infinite;
+    }
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(224,104,14,0.6);}
+      70%{box-shadow:0 0 0 8px rgba(224,104,14,0);}
+      100%{box-shadow:0 0 0 0 rgba(224,104,14,0);}
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav wrap">
+    <div class="brand"><span class="dot">✿</span> Rosa's Bakery</div>
+    <nav class="links">
+      <a href="#about">Our Story</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Visit Us</a>
+    </nav>
+    <button class="cart-btn" onclick="toggleCart(true)">
+      🧺 Cart <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<div class="picado"></div>
+
+<section class="hero">
+  <div class="hero-eyebrow">Sunset Park, Brooklyn · Open 24 Hours</div>
+  <h1>Fresh from the oven,<br><span>every hour, every day.</span></h1>
+  <p class="tag">Handmade conchas, churros, and tres leches — plus tamales, empanadas, and champurrado, baked around the clock at 5824 4th Ave.</p>
+  <div class="hero-cta">
+    <a href="tel:+17184921470" class="btn btn-primary">📞 Call to Order</a>
+    <a href="#menu" class="btn btn-outline">View Menu</a>
+  </div>
+  <div class="hero-badge">
+    <span>⭐ 4.0 rated on Google</span>
+    <span>🕐 Open 24 Hours</span>
+    <span>💵 Cash accepted</span>
+  </div>
+</section>
+
+<div class="picado alt"></div>
+
+<section class="about" id="about">
+  <div class="about-photo">Photo of storefront<br>& fresh pan dulce case</div>
+  <div class="about-text">
+    <div class="eyebrow">Our Story</div>
+    <h2>A Sunset Park staple, baked with tradition</h2>
+    <p class="lead-story">Rosa's Bakery has become a neighborhood fixture in Sunset Park, serving authentic Mexican pastries and bakery classics made fresh daily. From conchas and bolillos to made-to-order tamales, every item comes from recipes rooted in tradition.</p>
+    <p>Popular items sell out quickly, so regulars know to stop in early — though with doors open 24 hours, there's always another fresh batch coming out of the oven.</p>
+  </div>
+</section>
+
+<section class="menu-section" id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Fresh Daily</div>
+      <h2>Our Menu</h2>
+    </div>
+    <div class="menu-tabs">
+      <div class="tab active" onclick="showCat('pan')">Pan Dulce</div>
+      <div class="tab" onclick="showCat('savory')">Savory</div>
+      <div class="tab" onclick="showCat('drinks')">Drinks</div>
+      <div class="tab" onclick="showCat('cakes')">Custom Cakes</div>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-cat active" id="pan">
+        <div class="item">
+          <div class="item-info"><h4>Concha</h4><p>Classic sweet bread with vanilla or chocolate shell</p></div>
+          <div class="item-side"><span class="price">$2.25</span><button class="add-btn" onclick="addItem('Concha',2.25)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Churros (3pc)</h4><p>Cinnamon sugar, fried to order</p></div>
+          <div class="item-side"><span class="price">$3.50</span><button class="add-btn" onclick="addItem('Churros',3.50)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Tres Leches Slice</h4><p>Soaked sponge cake, whipped cream</p></div>
+          <div class="item-side"><span class="price">$4.75</span><button class="add-btn" onclick="addItem('Tres Leches Slice',4.75)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Bolillo</h4><p>Fresh-baked crusty roll</p></div>
+          <div class="item-side"><span class="price">$1.25</span><button class="add-btn" onclick="addItem('Bolillo',1.25)">Add</button></div>
+        </div>
+      </div>
+      <div class="menu-cat" id="savory">
+        <div class="item">
+          <div class="item-info"><h4>Tamales</h4><p>Made to order, ask for today's filling</p></div>
+          <div class="item-side"><span class="price">$3.00</span><button class="add-btn" onclick="addItem('Tamales',3.00)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Empanada</h4><p>Savory hand pie, rotating fillings</p></div>
+          <div class="item-side"><span class="price">$3.25</span><button class="add-btn" onclick="addItem('Empanada',3.25)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Torta</h4><p>Fresh bolillo sandwich, choice of filling</p></div>
+          <div class="item-side"><span class="price">$8.50</span><button class="add-btn" onclick="addItem('Torta',8.50)">Add</button></div>
+        </div>
+      </div>
+      <div class="menu-cat" id="drinks">
+        <div class="item">
+          <div class="item-info"><h4>Champurrado</h4><p>Warm Mexican chocolate drink</p></div>
+          <div class="item-side"><span class="price">$3.75</span><button class="add-btn" onclick="addItem('Champurrado',3.75)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Horchata</h4><p>Rice milk, cinnamon</p></div>
+          <div class="item-side"><span class="price">$3.25</span><button class="add-btn" onclick="addItem('Horchata',3.25)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Iced Coffee</h4><p>House favorite, bold and smooth</p></div>
+          <div class="item-side"><span class="price">$3.00</span><button class="add-btn" onclick="addItem('Iced Coffee',3.00)">Add</button></div>
+        </div>
+      </div>
+      <div class="menu-cat" id="cakes">
+        <div class="item">
+          <div class="item-info"><h4>Custom Cake (small)</h4><p>Serves 8–10, call to place order</p></div>
+          <div class="item-side"><span class="price">from $35</span><button class="add-btn" onclick="addItem('Custom Cake (small)',35)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Party Platter</h4><p>Assorted pan dulce, serves 15+</p></div>
+          <div class="item-side"><span class="price">from $28</span><button class="add-btn" onclick="addItem('Party Platter',28)">Add</button></div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:30px; font-size:13px; color:var(--ink-soft);">Cash only in-store · A $1 container fee applies to cupcakes and cake slices</p>
+    <div class="menu-tabs" style="margin-top:36px;">
+      <div class="tab active" onclick="jumpCat('pan')">Pan Dulce</div>
+      <div class="tab" onclick="jumpCat('savory')">Savory</div>
+      <div class="tab" onclick="jumpCat('drinks')">Drinks</div>
+      <div class="tab" onclick="jumpCat('cakes')">Custom Cakes</div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Take a Look</div>
+      <h2>From Our Case &amp; Kitchen</h2>
+    </div>
+    <div class="gallery-grid">
+      <figure class="g1"><img src="https://placehold.co/600x600/F0E6D8/5C4436?text=Pan+Dulce+Case" alt="Pan Dulce Case"><figcaption>Pan Dulce Case</figcaption></figure>
+      <figure class="g2"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Fresh+Churros" alt="Fresh Churros"><figcaption>Fresh Churros</figcaption></figure>
+      <figure class="g3"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Storefront" alt="Storefront"><figcaption>Storefront</figcaption></figure>
+      <figure class="g4"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Tres+Leches" alt="Tres Leches"><figcaption>Tres Leches</figcaption></figure>
+      <figure class="g5"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Custom+Cake" alt="Custom Cake"><figcaption>Custom Cake</figcaption></figure>
+      <figure class="g6"><img src="https://placehold.co/600x600/F0E6D8/5C4436?text=Tamales" alt="Tamales"><figcaption>Tamales</figcaption></figure>
+      <figure class="g7"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Morning+Bake" alt="Morning Bake"><figcaption>Morning Bake</figcaption></figure>
+      <figure class="g8"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Interior" alt="Interior"><figcaption>Interior</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Visit Rosa's</h2>
+      <p class="lead">Open around the clock in Sunset Park. Stop by for fresh pan dulce any hour, or call ahead for tamales, tortas, and custom cakes.</p>
+
+      <div class="contact-row">
+        <div class="ic">📍</div>
+        <div><h4>Address</h4><p>5824 4th Ave, Brooklyn, NY 11220</p></div>
+      </div>
+      <div class="contact-row">
+        <div class="ic">🕐</div>
+        <div><h4>Hours</h4><p>Open 24 Hours, 7 days a week</p></div>
+      </div>
+      <div class="contact-row">
+        <div class="ic">💵</div>
+        <div><h4>Payment</h4><p>Cash only</p></div>
+      </div>
+
+      <a href="tel:+17184921470" class="call-big">📞 (718) 492-1470</a>
+    </div>
+    <div class="map-box">
+      <iframe src="https://maps.google.com/maps?q=5824%204th%20Ave%2C%20Brooklyn%2C%20NY%2011220&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="social"><a href="#">Instagram</a></div>
+  <p>© 2026 Rosa's Bakery · 5824 4th Ave, Brooklyn, NY 11220 · (718) 492-1470</p>
+</footer>
+
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart(false)"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <h3>Your Order</h3>
+    <button class="cart-close" onclick="toggleCart(false)">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <p class="cart-empty">Your cart is empty. Add something fresh!</p>
+  </div>
+  <div class="cart-foot">
+    <div class="cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+    <button class="checkout-btn" onclick="checkout()">Review &amp; Call to Order</button>
+    <p class="checkout-note">Online cart is for planning your order — checkout finalizes by phone.</p>
+  </div>
+</div>
+
+<a href="tel:+17184921470" class="mobile-call-bar">
+  <span class="pulse-dot"></span> 📞 Call Now to Order — (718) 492-1470
+</a>
+
+<script>
+  let cart = JSON.parse(localStorage.getItem('rosasCart') || '{}');
+
+  function saveCart(){
+    localStorage.setItem('rosasCart', JSON.stringify(cart));
+  }
+  function addItem(name, price){
+    if(cart[name]) cart[name].qty += 1;
+    else cart[name] = {price, qty:1};
+    saveCart();
+    renderCart();
+    toggleCart(true);
+  }
+  function changeQty(name, delta){
+    if(!cart[name]) return;
+    cart[name].qty += delta;
+    if(cart[name].qty <= 0) delete cart[name];
+    saveCart();
+    renderCart();
+  }
+  function renderCart(){
+    const itemsEl = document.getElementById('cartItems');
+    const keys = Object.keys(cart);
+    let count = 0, total = 0;
+    if(keys.length === 0){
+      itemsEl.innerHTML = '<p class="cart-empty">Your cart is empty. Add something fresh!</p>';
+    } else {
+      itemsEl.innerHTML = keys.map(name => {
+        const it = cart[name];
+        count += it.qty;
+        total += it.qty * it.price;
+        return `<div class="cart-line">
+          <div>
+            <div>${name}</div>
+            <div class="qty-ctrl">
+              <button onclick="changeQty('${name}',-1)">-</button>
+              <span>${it.qty}</span>
+              <button onclick="changeQty('${name}',1)">+</button>
+            </div>
+          </div>
+          <div>$${(it.qty*it.price).toFixed(2)}</div>
+        </div>`;
+      }).join('');
+    }
+    document.getElementById('cartCount').textContent = count;
+    document.getElementById('cartTotal').textContent = '$' + total.toFixed(2);
+  }
+  function toggleCart(open){
+    document.getElementById('cartDrawer').classList.toggle('open', open);
+    document.getElementById('cartOverlay').classList.toggle('open', open);
+  }
+  function checkout(){
+    if(Object.keys(cart).length === 0){ alert('Add an item first!'); return; }
+    let summary = 'Order summary:\n';
+    let total = 0;
+    for(const [name, it] of Object.entries(cart)){
+      summary += `${it.qty} x ${name} - $${(it.qty*it.price).toFixed(2)}\n`;
+      total += it.qty*it.price;
+    }
+    summary += `Total: $${total.toFixed(2)}\n\nCall (718) 492-1470 to place this order.`;
+    alert(summary);
+  }
+  renderCart();
+  function showCat(id){
+    document.querySelectorAll('.menu-cat').forEach(el => el.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.tab').forEach(el => {
+      el.classList.toggle('active', el.getAttribute('onclick').includes("'"+id+"'"));
+    });
+  }
+  function jumpCat(id){
+    document.getElementById('menu').scrollIntoView({behavior:'smooth'});
+    showCat(id);
+  }
+</script>
+
+</body>
+</html>
