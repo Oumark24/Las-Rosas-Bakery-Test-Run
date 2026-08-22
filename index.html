@@ -209,6 +209,18 @@
     .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 34px; }
     .hero-note { display: flex; gap: 10px; max-width: 440px; margin: 27px 0 0; color: rgba(255,255,255,.64); font-size: .76rem; line-height: 1.5; }
     .hero-note::before { width: 20px; height: 1px; flex: none; margin-top: .65em; background: var(--saffron); content: ""; }
+    .hero-bake-stack { position: absolute; z-index: 0; right: clamp(22px, 8vw, 132px); bottom: 52px; width: clamp(230px, 27vw, 365px); height: 328px; pointer-events: none; filter: drop-shadow(0 19px 22px rgba(18,5,6,.22)); }
+    .hero-bake-stack__plate { position: absolute; right: 7%; bottom: 4px; width: 86%; height: 25px; border: 1px solid rgba(242,211,162,.52); border-radius: 50%; background: linear-gradient(90deg, rgba(242,211,162,.08), rgba(242,211,162,.4), rgba(242,211,162,.08)); }
+    .hero-bake-stack__layer { position: absolute; right: 50%; width: var(--layer-width); height: var(--layer-height); transform: translate(50%, var(--layer-y, 0)) rotate(var(--layer-tilt, 0deg)); transform-origin: 50% 100%; border: 1px solid rgba(242,211,162,.5); border-radius: 48% 48% 20px 20px / 18% 18% 18px 18px; background: linear-gradient(180deg, rgba(248,220,177,.82) 0 15%, rgba(154,70,46,.68) 16% 82%, rgba(82,27,24,.76) 83%); box-shadow: inset 0 11px 0 rgba(255,255,255,.13), inset 0 -12px 0 rgba(43,9,13,.17); opacity: var(--layer-opacity, .7); will-change: transform, opacity; }
+    .hero-bake-stack__layer::after { position: absolute; right: 10%; bottom: 10px; left: 10%; height: 4px; border-radius: 99px; background: rgba(255,238,199,.43); content: ""; }
+    .hero-bake-stack__layer--one { --layer-width: 92%; --layer-height: 68px; }
+    .hero-bake-stack__layer--two { --layer-width: 74%; --layer-height: 57px; }
+    .hero-bake-stack__layer--three { --layer-width: 55%; --layer-height: 47px; }
+    .hero-bake-stack__frosting { position: absolute; right: 50%; width: 64%; height: 41px; transform: translate(50%, var(--frost-y, 0)) rotate(var(--frost-turn, 0deg)); border: 7px solid rgba(255,239,205,.8); border-right-color: transparent; border-bottom-color: transparent; border-radius: 50%; opacity: var(--frost-opacity, .18); will-change: transform, opacity; }
+    .hero-bake-stack__frosting--one { top: 71px; }
+    .hero-bake-stack__frosting--two { top: 109px; width: 48%; }
+    .hero-bake-stack__spark { position: absolute; top: 42px; right: 45%; width: 9px; height: 9px; border-radius: 50%; background: var(--saffron); box-shadow: 0 0 0 7px rgba(230,161,54,.12); opacity: var(--spark-opacity, .2); will-change: transform, opacity; }
+    @media (max-width: 760px) { .hero-bake-stack { right: -35px; bottom: 15px; width: 225px; height: 250px; opacity: .45; } }
     .time-card { position: absolute; right: 0; bottom: 44px; display: none; width: 225px; padding: 19px 20px; transform: rotate(4deg); background: var(--paper-bright); color: var(--wine-dark); box-shadow: var(--shadow); }
     .time-card::before, .time-card::after { position: absolute; right: 0; left: 0; height: 7px; background: radial-gradient(circle at 4px 0, transparent 4px, var(--wine-dark) 4.4px) 0 0 / 8px 7px repeat-x; content: ""; }
     .time-card::before { top: -1px; transform: rotate(180deg); }
@@ -382,6 +394,15 @@
           </a>
         </div>
         <p class="hero-note">For today’s availability, the simplest next step is a quick call or a visit to the counter.</p>
+      </div>
+      <div class="hero-bake-stack" data-bake-stack aria-hidden="true">
+        <span class="hero-bake-stack__plate"></span>
+        <span class="hero-bake-stack__layer hero-bake-stack__layer--one" data-bake-layer="one"></span>
+        <span class="hero-bake-stack__layer hero-bake-stack__layer--two" data-bake-layer="two"></span>
+        <span class="hero-bake-stack__layer hero-bake-stack__layer--three" data-bake-layer="three"></span>
+        <span class="hero-bake-stack__frosting hero-bake-stack__frosting--one" data-bake-frosting="one"></span>
+        <span class="hero-bake-stack__frosting hero-bake-stack__frosting--two" data-bake-frosting="two"></span>
+        <span class="hero-bake-stack__spark" data-bake-spark></span>
       </div>
       <aside class="time-card" aria-label="Open twenty-four hours">
         <span class="time-card__overline">Sunset Park</span>
@@ -581,7 +602,51 @@
         });
       });
 
+      const initialiseBakeryStack = () => {
+        const stack = document.querySelector('[data-bake-stack]');
+        const hero = document.querySelector('.hero');
+        if (!stack || !hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const layers = [
+          { element: stack.querySelector('[data-bake-layer="one"]'), start: 96, end: 0, opacity: .94 },
+          { element: stack.querySelector('[data-bake-layer="two"]'), start: 62, end: -65, opacity: .9 },
+          { element: stack.querySelector('[data-bake-layer="three"]'), start: 29, end: -118, opacity: .86 }
+        ];
+        const frosting = [
+          { element: stack.querySelector('[data-bake-frosting="one"]'), start: 72, end: -97 },
+          { element: stack.querySelector('[data-bake-frosting="two"]'), start: 60, end: -141 }
+        ];
+        const spark = stack.querySelector('[data-bake-spark]');
+        let ticking = false;
+        const clamp = (value) => Math.max(0, Math.min(1, value));
+        const render = () => {
+          const progress = clamp(window.scrollY / Math.max(hero.offsetHeight * .72, 1));
+          layers.forEach(({ element, start, end, opacity }, index) => {
+            if (!element) return;
+            const local = clamp((progress - index * .08) / .72);
+            element.style.setProperty('--layer-y', `${start + (end - start) * local}px`);
+            element.style.setProperty('--layer-tilt', `${(1 - local) * (index % 2 ? -2.2 : 2.2)}deg`);
+            element.style.setProperty('--layer-opacity', `${.38 + (opacity - .38) * local}`);
+          });
+          frosting.forEach(({ element, start, end }, index) => {
+            if (!element) return;
+            const local = clamp((progress - .12 - index * .09) / .67);
+            element.style.setProperty('--frost-y', `${start + (end - start) * local}px`);
+            element.style.setProperty('--frost-turn', `${local * (index ? -10 : 10)}deg`);
+            element.style.setProperty('--frost-opacity', `${.12 + local * .78}`);
+          });
+          if (spark) {
+            spark.style.transform = `translateY(${-progress * 152}px) scale(${.72 + progress * .48})`;
+            spark.style.setProperty('--spark-opacity', `${.2 + progress * .8}`);
+          }
+          ticking = false;
+        };
+        const onScroll = () => { if (!ticking) { ticking = true; window.requestAnimationFrame(render); } };
+        render();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      };
+
       const initialiseMotion = () => {
+        initialiseBakeryStack();
         if (!window.gsap || !window.ScrollTrigger || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.registerPlugin(ScrollTrigger);
         gsap.to('.hero', { '--hero-rotation': '14deg', ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .6 } });
