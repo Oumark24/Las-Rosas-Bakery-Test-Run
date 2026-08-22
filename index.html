@@ -20,6 +20,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="./assets/visuals/pastry-paper-material.webp" fetchpriority="high">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -184,7 +187,8 @@
     .mobile-nav__links a { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.18); font-family: var(--display); font-size: 2.1rem; line-height: 1; }
     .mobile-nav__actions { display: grid; gap: 10px; align-self: end; }
 
-    .hero { position: relative; overflow: hidden; min-height: min(760px, calc(100svh - var(--header-height))); background: var(--wine-dark); color: #fff; }
+    .hero { position: relative; overflow: hidden; min-height: min(760px, calc(100svh - var(--header-height))); background: linear-gradient(90deg, rgba(35,13,15,.96) 0%, rgba(35,13,15,.82) 42%, rgba(35,13,15,.32) 100%), url('./assets/visuals/pastry-paper-material.webp') center / cover no-repeat, var(--wine-dark); color: #fff; }
+    .hero::selection { background: var(--saffron); color: var(--wine-dark); }
     .hero::before {
       position: absolute;
       inset: 0;
@@ -194,7 +198,8 @@
       content: "";
       mask-image: linear-gradient(90deg, #000, transparent 76%);
     }
-    .hero::after { position: absolute; right: -130px; bottom: -230px; width: min(73vw, 780px); height: min(73vw, 780px); border: 1px solid rgba(255,255,255,.19); border-radius: 50%; box-shadow: 0 0 0 26px rgba(255,255,255,.045), 0 0 0 53px rgba(255,255,255,.035); content: ""; }
+    .hero::after { position: absolute; right: -130px; bottom: -230px; width: min(73vw, 780px); height: min(73vw, 780px); transform: rotate(var(--hero-rotation, 0deg)); border: 1px solid rgba(255,255,255,.19); border-radius: 50%; box-shadow: 0 0 0 26px rgba(255,255,255,.045), 0 0 0 53px rgba(255,255,255,.035); content: ""; will-change: transform; }
+    .hero::before { will-change: transform, opacity; }
     .hero-inner { position: relative; z-index: 1; display: grid; min-height: inherit; align-content: center; padding: 70px 0 86px; }
     .hero-kicker { display: flex; flex-wrap: wrap; gap: 9px; align-items: center; margin-bottom: 25px; font-size: .68rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
     .hero-kicker::before { width: 9px; height: 9px; border-radius: 50%; background: var(--saffron); box-shadow: 0 0 0 5px rgba(230,161,54,.17); content: ""; }
@@ -361,7 +366,7 @@
 
   <main id="main-content">
     <section class="hero" id="top" aria-labelledby="hero-heading">
-      <!-- ASSET: An approved storefront image may be added as a lightweight CSS background using assets/hero/las-rosas-storefront.webp. Do not substitute stock or generated food photography. -->
+      <!-- Local abstract paper material in ./assets/visuals/pastry-paper-material.webp is a non-documentary visual treatment; it does not depict the storefront, food, staff, or inventory. -->
       <div class="container hero-inner">
         <div class="hero-kicker">Sunset Park, Brooklyn · Open 24 hours</div>
         <h1 id="hero-heading">The bakery<br><em>that keeps the light on.</em></h1>
@@ -575,6 +580,16 @@
           activateTab(tabs[nextIndex]);
         });
       });
+
+      const initialiseMotion = () => {
+        if (!window.gsap || !window.ScrollTrigger || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.to('.hero', { '--hero-rotation': '14deg', ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .6 } });
+        gsap.utils.toArray('.intro, .counter-section, .visit-section, .instagram-section').forEach((section) => {
+          gsap.from(section.querySelectorAll('.section-heading, .section-lede, .counter-poster, .counter-panel, .visit-details, .instagram-card'), { autoAlpha: 0, y: 22, stagger: .08, duration: .55, ease: 'power2.out', scrollTrigger: { trigger: section, start: 'top 78%' } });
+        });
+      };
+      window.addEventListener('load', initialiseMotion, { once: true });
     })();
   </script>
 </body>

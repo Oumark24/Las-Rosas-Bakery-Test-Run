@@ -21,3 +21,11 @@ Place approved files in the folders below. Keep filenames descriptive and update
 | `social/las-rosas-social-preview.jpg` | Optional sharing image | JPG or PNG, 1200 × 630px, a real approved storefront or bakery image. |
 
 Do not upload base64-encoded assets. Do not use unapproved food photography, stock photography, or AI-generated food imagery as a substitute for real business assets.
+
+## Premium visual treatment
+
+| File | Purpose | Public-facing constraint |
+|---|---|---|
+| `visuals/pastry-paper-material.webp` | Local abstract paper-material treatment for the homepage hero | Do not represent it as the storefront, logo, staff, inventory, menu, or food photography. It remains a non-documentary visual treatment only. |
+
+Keep the high-contrast overlay in `index.html`. Replace this asset only with owner-approved documentary imagery or an equally non-documentary local treatment.
