@@ -26,6 +26,7 @@ Do not upload base64-encoded assets. Do not use unapproved food photography, sto
 
 | File | Purpose | Public-facing constraint |
 |---|---|---|
-| `visuals/pastry-paper-material.webp` | Local abstract paper-material treatment for the homepage hero | Do not represent it as the storefront, logo, staff, inventory, menu, or food photography. It remains a non-documentary visual treatment only. |
+| `visuals/pastry-paper-material.webp` | Earlier local abstract paper-material treatment retained as a supporting visual | Do not represent it as the storefront, logo, staff, inventory, menu, or food photography. It remains a non-documentary visual treatment only. |
+| `visuals/hero-paper-sculpture.jpg` | Primary motion-hero material, generated as an abstract folded-paper and geometric-material study | It is not a photo of Las Rosas, its food, staff, storefront, inventory, menu, packaging, or logo. Use only as a non-documentary visual layer in the homepage hero; do not reuse it as factual business photography. |
 
-Keep the high-contrast overlay in `index.html`. Replace this asset only with owner-approved documentary imagery or an equally non-documentary local treatment.
+The cinematic hero keeps both a high-contrast readability overlay and CSS 3D foreground planes in `index.html`; its page copy and customer actions remain independent of the visual. Replace the material only with owner-approved documentary imagery or an equally non-documentary local treatment.

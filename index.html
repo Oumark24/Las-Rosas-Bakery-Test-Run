@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="./assets/visuals/pastry-paper-material.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="./assets/visuals/hero-paper-sculpture.jpg" fetchpriority="high">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script type="application/ld+json">
@@ -187,41 +187,48 @@
     .mobile-nav__links a { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.18); font-family: var(--display); font-size: 2.1rem; line-height: 1; }
     .mobile-nav__actions { display: grid; gap: 10px; align-self: end; }
 
-    .hero { position: relative; overflow: hidden; min-height: min(760px, calc(100svh - var(--header-height))); background: linear-gradient(90deg, rgba(35,13,15,.96) 0%, rgba(35,13,15,.82) 42%, rgba(35,13,15,.32) 100%), url('./assets/visuals/pastry-paper-material.webp') center / cover no-repeat, var(--wine-dark); color: #fff; }
+    .hero { position: relative; isolation: isolate; overflow: hidden; min-height: min(820px, calc(100svh - var(--header-height) + 44px)); background: #211014; color: #fff; }
     .hero::selection { background: var(--saffron); color: var(--wine-dark); }
-    .hero::before {
-      position: absolute;
-      inset: 0;
-      opacity: .48;
-      background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.22) 1px, transparent 1.5px);
-      background-size: 17px 17px;
-      content: "";
-      mask-image: linear-gradient(90deg, #000, transparent 76%);
-    }
-    .hero::after { position: absolute; right: -130px; bottom: -230px; width: min(73vw, 780px); height: min(73vw, 780px); transform: rotate(var(--hero-rotation, 0deg)); border: 1px solid rgba(255,255,255,.19); border-radius: 50%; box-shadow: 0 0 0 26px rgba(255,255,255,.045), 0 0 0 53px rgba(255,255,255,.035); content: ""; will-change: transform; }
-    .hero::before { will-change: transform, opacity; }
-    .hero-inner { position: relative; z-index: 1; display: grid; min-height: inherit; align-content: center; padding: 70px 0 86px; }
+    .hero::before { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(27,9,12,.95) 0%, rgba(32,10,14,.88) 37%, rgba(36,9,13,.44) 66%, rgba(25,7,10,.16) 100%); content: ""; pointer-events: none; }
+    .hero::after { position: absolute; z-index: 2; inset: 0; background: radial-gradient(circle at 72% 46%, transparent 0 14%, rgba(13,4,6,.16) 43%, rgba(13,4,6,.77) 100%), linear-gradient(180deg, rgba(255,241,216,.11), transparent 16%, rgba(21,5,9,.42) 100%); content: ""; pointer-events: none; }
+    .hero-visual { position: absolute; z-index: 0; inset: -7%; overflow: hidden; perspective: 1500px; transform-style: preserve-3d; background: #211014; will-change: transform; }
+    .hero-visual__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 68% center; transform: scale(1.06); filter: saturate(1.08) contrast(1.03); will-change: transform; }
+    .hero-visual__grain { position: absolute; inset: 0; opacity: .28; background-image: radial-gradient(circle at 1px 1px, rgba(255,244,219,.22) 1px, transparent 1.5px); background-size: 15px 15px; mix-blend-mode: soft-light; }
+    .hero-visual__wash { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(230,161,54,.1), transparent 32% 68%, rgba(109,41,49,.2)), radial-gradient(ellipse at 68% 68%, rgba(248,220,177,.2), transparent 46%); mix-blend-mode: screen; }
+    .hero-stage { position: absolute; z-index: 3; right: max(-4vw, -68px); top: 50%; width: min(52vw, 730px); height: min(56vw, 680px); transform: translateY(-50%); transform-style: preserve-3d; pointer-events: none; will-change: transform; }
+    .hero-stage__panel { position: absolute; display: block; border: 1px solid rgba(255,236,195,.28); transform-style: preserve-3d; box-shadow: inset 0 0 46px rgba(255,240,213,.09), 0 25px 55px rgba(10,1,2,.26); will-change: transform, opacity; }
+    .hero-stage__panel--back { inset: 13% 8% 11% 19%; border-radius: 48% 52% 48% 52% / 54% 47% 53% 46%; background: linear-gradient(135deg, rgba(255,244,217,.18), rgba(138,43,47,.08) 58%, rgba(230,161,54,.17)); transform: rotate(-13deg) rotateY(-17deg) translateZ(-40px); }
+    .hero-stage__panel--middle { inset: 20% 15% 19% 11%; border-radius: 58% 42% 54% 46% / 43% 54% 46% 57%; background: linear-gradient(140deg, rgba(109,41,49,.34), rgba(248,220,177,.1) 47%, rgba(230,161,54,.2)); transform: rotate(18deg) rotateY(17deg) translateZ(32px); }
+    .hero-stage__panel--front { inset: 27% 24% 28% 24%; border-radius: 50%; background: radial-gradient(circle at 35% 28%, rgba(255,248,227,.72), rgba(242,211,162,.23) 30%, rgba(109,41,49,.24) 70%, rgba(35,7,12,.5)); box-shadow: inset 12px 13px 32px rgba(255,255,255,.24), inset -18px -22px 44px rgba(57,7,12,.3), 0 33px 58px rgba(5,1,2,.36); transform: rotate(-7deg) rotateY(-24deg) translateZ(96px); }
+    .hero-stage__arc { position: absolute; right: 8%; top: 7%; width: 74%; height: 76%; border: 1px solid rgba(255,242,213,.35); border-left-color: transparent; border-bottom-color: transparent; border-radius: 50%; transform: rotate(-25deg) translateZ(135px); box-shadow: 0 0 0 21px rgba(255,242,213,.035), 0 0 0 47px rgba(255,242,213,.025); will-change: transform; }
+    .hero-stage__spark { position: absolute; z-index: 2; width: 10px; height: 10px; border-radius: 50%; background: var(--saffron); box-shadow: 0 0 0 9px rgba(230,161,54,.13), 0 0 38px 9px rgba(230,161,54,.48); transform: translateZ(170px); will-change: transform, opacity; }
+    .hero-stage__spark--one { top: 15%; left: 27%; }
+    .hero-stage__spark--two { right: 18%; bottom: 19%; width: 6px; height: 6px; opacity: .78; }
+    .hero-inner { position: relative; z-index: 5; display: grid; min-height: inherit; align-content: center; padding: 76px 0 96px; }
     .hero-kicker { display: flex; flex-wrap: wrap; gap: 9px; align-items: center; margin-bottom: 25px; font-size: .68rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
     .hero-kicker::before { width: 9px; height: 9px; border-radius: 50%; background: var(--saffron); box-shadow: 0 0 0 5px rgba(230,161,54,.17); content: ""; }
-    .hero h1 { max-width: 830px; margin: 0; font-family: var(--display); font-size: clamp(3.55rem, 10.6vw, 8.3rem); font-weight: 400; letter-spacing: -.06em; line-height: .82; }
+    .hero h1 { max-width: 830px; margin: 0; font-family: var(--display); font-size: clamp(3.55rem, 10.6vw, 8.3rem); font-weight: 400; letter-spacing: -.06em; line-height: .82; text-shadow: 0 8px 32px rgba(15,3,5,.2); }
     .hero h1 em { display: block; margin-top: .2em; color: #f2d3a2; font-style: italic; font-weight: 400; }
-    .hero-description { max-width: 570px; margin: 32px 0 0; color: rgba(255,255,255,.78); font-size: 1rem; line-height: 1.7; }
+    .hero-description { max-width: 570px; margin: 32px 0 0; color: rgba(255,255,255,.82); font-size: 1rem; line-height: 1.7; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 34px; }
-    .hero-note { display: flex; gap: 10px; max-width: 440px; margin: 27px 0 0; color: rgba(255,255,255,.64); font-size: .76rem; line-height: 1.5; }
+    .hero-note { display: flex; gap: 10px; max-width: 440px; margin: 27px 0 0; color: rgba(255,255,255,.68); font-size: .76rem; line-height: 1.5; }
     .hero-note::before { width: 20px; height: 1px; flex: none; margin-top: .65em; background: var(--saffron); content: ""; }
-    .hero-bake-stack { position: absolute; z-index: 0; right: clamp(22px, 8vw, 132px); bottom: 52px; width: clamp(230px, 27vw, 365px); height: 328px; pointer-events: none; filter: drop-shadow(0 19px 22px rgba(18,5,6,.22)); }
-    .hero-bake-stack__plate { position: absolute; right: 7%; bottom: 4px; width: 86%; height: 25px; border: 1px solid rgba(242,211,162,.52); border-radius: 50%; background: linear-gradient(90deg, rgba(242,211,162,.08), rgba(242,211,162,.4), rgba(242,211,162,.08)); }
-    .hero-bake-stack__layer { position: absolute; right: 50%; width: var(--layer-width); height: var(--layer-height); transform: translate(50%, var(--layer-y, 0)) rotate(var(--layer-tilt, 0deg)); transform-origin: 50% 100%; border: 1px solid rgba(242,211,162,.5); border-radius: 48% 48% 20px 20px / 18% 18% 18px 18px; background: linear-gradient(180deg, rgba(248,220,177,.82) 0 15%, rgba(154,70,46,.68) 16% 82%, rgba(82,27,24,.76) 83%); box-shadow: inset 0 11px 0 rgba(255,255,255,.13), inset 0 -12px 0 rgba(43,9,13,.17); opacity: var(--layer-opacity, .7); will-change: transform, opacity; }
-    .hero-bake-stack__layer::after { position: absolute; right: 10%; bottom: 10px; left: 10%; height: 4px; border-radius: 99px; background: rgba(255,238,199,.43); content: ""; }
-    .hero-bake-stack__layer--one { --layer-width: 92%; --layer-height: 68px; }
-    .hero-bake-stack__layer--two { --layer-width: 74%; --layer-height: 57px; }
-    .hero-bake-stack__layer--three { --layer-width: 55%; --layer-height: 47px; }
-    .hero-bake-stack__frosting { position: absolute; right: 50%; width: 64%; height: 41px; transform: translate(50%, var(--frost-y, 0)) rotate(var(--frost-turn, 0deg)); border: 7px solid rgba(255,239,205,.8); border-right-color: transparent; border-bottom-color: transparent; border-radius: 50%; opacity: var(--frost-opacity, .18); will-change: transform, opacity; }
-    .hero-bake-stack__frosting--one { top: 71px; }
-    .hero-bake-stack__frosting--two { top: 109px; width: 48%; }
-    .hero-bake-stack__spark { position: absolute; top: 42px; right: 45%; width: 9px; height: 9px; border-radius: 50%; background: var(--saffron); box-shadow: 0 0 0 7px rgba(230,161,54,.12); opacity: var(--spark-opacity, .2); will-change: transform, opacity; }
-    @media (max-width: 760px) { .hero-bake-stack { right: -35px; bottom: 15px; width: 225px; height: 250px; opacity: .45; } }
-    .time-card { position: absolute; right: 0; bottom: 44px; display: none; width: 225px; padding: 19px 20px; transform: rotate(4deg); background: var(--paper-bright); color: var(--wine-dark); box-shadow: var(--shadow); }
+    @media (max-width: 760px) {
+      .hero { min-height: min(805px, calc(100svh - var(--header-height) + 74px)); }
+      .hero::before { background: linear-gradient(180deg, rgba(27,9,12,.64) 0%, rgba(27,9,12,.74) 51%, rgba(27,9,12,.96) 93%), linear-gradient(90deg, rgba(27,9,12,.72), transparent); }
+      .hero-visual { inset: 0 -40% -5% -12%; }
+      .hero-visual__image { object-position: 69% center; transform: scale(1.1); }
+      .hero-stage { top: 43%; right: -32%; width: 122vw; height: 112vw; opacity: .85; }
+      .hero-stage__panel--back { inset: 12% 11% 12% 19%; }
+      .hero-stage__panel--middle { inset: 18% 17% 20% 12%; }
+      .hero-stage__panel--front { inset: 28% 26% 29% 23%; }
+      .hero-inner { align-content: end; padding: 115px 0 54px; }
+      .hero h1 { font-size: clamp(3.35rem, 16.3vw, 5.35rem); }
+      .hero-description { margin-top: 24px; font-size: .94rem; line-height: 1.58; }
+      .hero-actions { margin-top: 27px; }
+      .hero-note { margin-top: 22px; }
+    }
+    .time-card { position: absolute; z-index: 6; right: 0; bottom: 44px; display: none; width: 225px; padding: 19px 20px; transform: rotate(4deg); background: var(--paper-bright); color: var(--wine-dark); box-shadow: var(--shadow); }
     .time-card::before, .time-card::after { position: absolute; right: 0; left: 0; height: 7px; background: radial-gradient(circle at 4px 0, transparent 4px, var(--wine-dark) 4.4px) 0 0 / 8px 7px repeat-x; content: ""; }
     .time-card::before { top: -1px; transform: rotate(180deg); }
     .time-card::after { bottom: -1px; }
@@ -378,7 +385,20 @@
 
   <main id="main-content">
     <section class="hero" id="top" aria-labelledby="hero-heading">
-      <!-- Local abstract paper material in ./assets/visuals/pastry-paper-material.webp is a non-documentary visual treatment; it does not depict the storefront, food, staff, or inventory. -->
+      <!-- Local abstract sculptural material in ./assets/visuals/hero-paper-sculpture.jpg is a non-documentary art treatment. It does not depict the bakery, its food, staff, storefront, inventory, or logo. -->
+      <div class="hero-visual" data-hero-visual aria-hidden="true">
+        <img class="hero-visual__image" data-hero-image src="./assets/visuals/hero-paper-sculpture.jpg" width="1536" height="1024" alt="">
+        <span class="hero-visual__grain"></span>
+        <span class="hero-visual__wash"></span>
+      </div>
+      <div class="hero-stage" data-hero-stage aria-hidden="true">
+        <span class="hero-stage__panel hero-stage__panel--back" data-hero-panel="back"></span>
+        <span class="hero-stage__panel hero-stage__panel--middle" data-hero-panel="middle"></span>
+        <span class="hero-stage__panel hero-stage__panel--front" data-hero-panel="front"></span>
+        <span class="hero-stage__arc" data-hero-arc></span>
+        <span class="hero-stage__spark hero-stage__spark--one" data-hero-spark="one"></span>
+        <span class="hero-stage__spark hero-stage__spark--two" data-hero-spark="two"></span>
+      </div>
       <div class="container hero-inner">
         <div class="hero-kicker">Sunset Park, Brooklyn · Open 24 hours</div>
         <h1 id="hero-heading">The bakery<br><em>that keeps the light on.</em></h1>
@@ -394,15 +414,6 @@
           </a>
         </div>
         <p class="hero-note">For today’s availability, the simplest next step is a quick call or a visit to the counter.</p>
-      </div>
-      <div class="hero-bake-stack" data-bake-stack aria-hidden="true">
-        <span class="hero-bake-stack__plate"></span>
-        <span class="hero-bake-stack__layer hero-bake-stack__layer--one" data-bake-layer="one"></span>
-        <span class="hero-bake-stack__layer hero-bake-stack__layer--two" data-bake-layer="two"></span>
-        <span class="hero-bake-stack__layer hero-bake-stack__layer--three" data-bake-layer="three"></span>
-        <span class="hero-bake-stack__frosting hero-bake-stack__frosting--one" data-bake-frosting="one"></span>
-        <span class="hero-bake-stack__frosting hero-bake-stack__frosting--two" data-bake-frosting="two"></span>
-        <span class="hero-bake-stack__spark" data-bake-spark></span>
       </div>
       <aside class="time-card" aria-label="Open twenty-four hours">
         <span class="time-card__overline">Sunset Park</span>
@@ -468,7 +479,7 @@
         <div class="category-panel" id="panel-call" role="tabpanel" aria-labelledby="tab-call" hidden>
           <div class="counter-panel">
             <h3>A quick call is the clearest way to confirm availability.</h3>
-            <p>Call the bakery before your visit for the most reliable answer about what is available at the counter. No online ordering provider is shown here because none has been verified for this location.</p>
+            <p>Call the bakery before your visit for the most reliable answer about what is available at the counter. For today’s selection, a quick call is the simplest next step.</p>
             <aside class="callout">
               <p>Call Las Rosas Bakery directly.</p>
               <a href="tel:+17184921470">(718) 492-1470</a>
@@ -485,7 +496,7 @@
               <p>Official account</p>
               <a href="https://www.instagram.com/lasrosasbakery/" target="_blank" rel="noopener noreferrer">@lasrosasbakery</a>
             </aside>
-            <div class="counter-panel__meta"><span class="meta-tag">Verified public profile</span><span class="meta-tag">External link</span></div>
+            <div class="counter-panel__meta"><span class="meta-tag">Instagram</span><span class="meta-tag">Neighborhood updates</span></div>
           </div>
         </div>
       </div>
@@ -602,54 +613,61 @@
         });
       });
 
-      const initialiseBakeryStack = () => {
-        const stack = document.querySelector('[data-bake-stack]');
+      const initialiseHeroMotion = () => {
         const hero = document.querySelector('.hero');
-        if (!stack || !hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        const layers = [
-          { element: stack.querySelector('[data-bake-layer="one"]'), start: 96, end: 0, opacity: .94 },
-          { element: stack.querySelector('[data-bake-layer="two"]'), start: 62, end: -65, opacity: .9 },
-          { element: stack.querySelector('[data-bake-layer="three"]'), start: 29, end: -118, opacity: .86 }
-        ];
-        const frosting = [
-          { element: stack.querySelector('[data-bake-frosting="one"]'), start: 72, end: -97 },
-          { element: stack.querySelector('[data-bake-frosting="two"]'), start: 60, end: -141 }
-        ];
-        const spark = stack.querySelector('[data-bake-spark]');
-        let ticking = false;
-        const clamp = (value) => Math.max(0, Math.min(1, value));
-        const render = () => {
-          const progress = clamp(window.scrollY / Math.max(hero.offsetHeight * .72, 1));
-          layers.forEach(({ element, start, end, opacity }, index) => {
-            if (!element) return;
-            const local = clamp((progress - index * .08) / .72);
-            element.style.setProperty('--layer-y', `${start + (end - start) * local}px`);
-            element.style.setProperty('--layer-tilt', `${(1 - local) * (index % 2 ? -2.2 : 2.2)}deg`);
-            element.style.setProperty('--layer-opacity', `${.38 + (opacity - .38) * local}`);
-          });
-          frosting.forEach(({ element, start, end }, index) => {
-            if (!element) return;
-            const local = clamp((progress - .12 - index * .09) / .67);
-            element.style.setProperty('--frost-y', `${start + (end - start) * local}px`);
-            element.style.setProperty('--frost-turn', `${local * (index ? -10 : 10)}deg`);
-            element.style.setProperty('--frost-opacity', `${.12 + local * .78}`);
-          });
-          if (spark) {
-            spark.style.transform = `translateY(${-progress * 152}px) scale(${.72 + progress * .48})`;
-            spark.style.setProperty('--spark-opacity', `${.2 + progress * .8}`);
+        const visual = document.querySelector('[data-hero-visual]');
+        const image = document.querySelector('[data-hero-image]');
+        const stage = document.querySelector('[data-hero-stage]');
+        const panels = Array.from(document.querySelectorAll('[data-hero-panel]'));
+        const arc = document.querySelector('[data-hero-arc]');
+        const sparks = Array.from(document.querySelectorAll('[data-hero-spark]'));
+        if (!hero || !visual || !image || !stage || !window.gsap || !window.ScrollTrigger) return;
+
+        const heroMedia = gsap.matchMedia();
+        heroMedia.add(
+          {
+            isDesktop: '(min-width: 761px)',
+            isMobile: '(max-width: 760px)',
+            reduceMotion: '(prefers-reduced-motion: reduce)'
+          },
+          (context) => {
+            const { isDesktop, reduceMotion } = context.conditions;
+            if (reduceMotion) return;
+
+            gsap.set(image, { scale: isDesktop ? 1.06 : 1.1, transformOrigin: '68% 50%' });
+            gsap.set(stage, { transformPerspective: 1500, transformOrigin: '58% 50%' });
+            gsap.set(panels, { transformOrigin: '50% 50%' });
+
+            const motion = gsap.timeline({
+              defaults: { ease: 'none' },
+              scrollTrigger: {
+                trigger: hero,
+                start: 'top top',
+                end: 'bottom top',
+                scrub: isDesktop ? .72 : .5,
+                invalidateOnRefresh: true
+              }
+            });
+
+            motion
+              .to(image, { scale: isDesktop ? 1.19 : 1.15, xPercent: isDesktop ? -5 : -3, yPercent: isDesktop ? -4 : -2 }, 0)
+              .to(visual, { rotation: isDesktop ? -1.5 : -.8, yPercent: isDesktop ? -3 : -1 }, 0)
+              .to(stage, { yPercent: isDesktop ? -58 : -54, rotationY: isDesktop ? -29 : -14, rotationX: isDesktop ? 8 : 4, rotation: isDesktop ? -9 : -4, scale: isDesktop ? 1.12 : 1.03 }, 0)
+              .to(panels[0], { xPercent: -18, yPercent: -13, rotation: -21, rotationY: -17, scale: 1.07 }, 0)
+              .to(panels[1], { xPercent: 24, yPercent: 16, rotation: 29, rotationY: 26, scale: .9 }, 0)
+              .to(panels[2], { xPercent: -11, yPercent: 25, rotation: -15, rotationY: -38, scale: 1.18 }, 0)
+              .to(arc, { rotation: 33, rotationY: 24, scale: 1.11 }, 0)
+              .to(sparks[0], { xPercent: 145, yPercent: -170, scale: 1.9, autoAlpha: .72 }, 0)
+              .to(sparks[1], { xPercent: -150, yPercent: 125, scale: .55, autoAlpha: 0 }, 0);
           }
-          ticking = false;
-        };
-        const onScroll = () => { if (!ticking) { ticking = true; window.requestAnimationFrame(render); } };
-        render();
-        window.addEventListener('scroll', onScroll, { passive: true });
+        );
       };
 
       const initialiseMotion = () => {
-        initialiseBakeryStack();
-        if (!window.gsap || !window.ScrollTrigger || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (!window.gsap || !window.ScrollTrigger) return;
         gsap.registerPlugin(ScrollTrigger);
-        gsap.to('.hero', { '--hero-rotation': '14deg', ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .6 } });
+        initialiseHeroMotion();
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         gsap.utils.toArray('.intro, .counter-section, .visit-section, .instagram-section').forEach((section) => {
           gsap.from(section.querySelectorAll('.section-heading, .section-lede, .counter-poster, .counter-panel, .visit-details, .instagram-card'), { autoAlpha: 0, y: 22, stagger: .08, duration: .55, ease: 'power2.out', scrollTrigger: { trigger: section, start: 'top 78%' } });
         });
