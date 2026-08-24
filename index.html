@@ -1,679 +1,618 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#6d2931">
-  <title>Las Rosas Bakery | Sunset Park, Brooklyn</title>
-  <meta name="description" content="Las Rosas Bakery is an open-24-hours neighborhood bakery at 5824 4th Ave in Sunset Park, Brooklyn. Call or get directions before your visit.">
-  <link rel="canonical" href="https://oumark24.github.io/Las-Rosas-Bakery-Test-Run/">
-  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
-  <link rel="apple-touch-icon" href="favicon-192x192.png">
-  <meta property="og:site_name" content="Las Rosas Bakery">
-  <meta property="og:title" content="Las Rosas Bakery | Sunset Park, Brooklyn">
-  <meta property="og:description" content="An open-24-hours neighborhood bakery at 5824 4th Ave in Sunset Park, Brooklyn.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://oumark24.github.io/Las-Rosas-Bakery-Test-Run/">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Las Rosas Bakery | Sunset Park, Brooklyn">
-  <meta name="twitter:description" content="An open-24-hours neighborhood bakery at 5824 4th Ave in Sunset Park, Brooklyn.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="./assets/visuals/hero-paper-sculpture.jpg" fetchpriority="high">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Bakery",
-    "name": "Las Rosas Bakery",
-    "url": "https://oumark24.github.io/Las-Rosas-Bakery-Test-Run/",
-    "telephone": "+17184921470",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "5824 4th Ave",
-      "addressLocality": "Brooklyn",
-      "addressRegion": "NY",
-      "postalCode": "11220",
-      "addressCountry": "US"
-    },
-    "openingHours": "Mo-Su 00:00-23:59",
-    "sameAs": ["https://www.instagram.com/lasrosasbakery/"]
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rosa's Bakery | Sunset Park, Brooklyn</title>
+<meta name="description" content="Rosa's Bakery — a 24-hour Mexican bakery in Sunset Park, Brooklyn. Fresh conchas, churros, tres leches, tamales, and custom cakes daily.">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+<link rel="apple-touch-icon" href="favicon-192x192.png">
+<meta property="og:title" content="Rosa's Bakery | Sunset Park, Brooklyn">
+<meta property="og:description" content="Fresh Mexican pan dulce, tamales, and custom cakes — open 24 hours at 5824 4th Ave, Brooklyn.">
+<meta property="og:type" content="restaurant.menu">
+<meta property="og:url" content="https://rosasbakerybrooklyn.com/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rosa's Bakery | Sunset Park, Brooklyn">
+<meta name="twitter:description" content="Fresh Mexican pan dulce, tamales, and custom cakes — open 24 hours at 5824 4th Ave, Brooklyn.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "Rosa's Bakery",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "5824 4th Ave",
+    "addressLocality": "Brooklyn",
+    "addressRegion": "NY",
+    "postalCode": "11220"
+  },
+  "telephone": "+17184921470",
+  "openingHours": "Mo-Su 00:00-23:59",
+  "priceRange": "$"
+}
+</script>
+<!-- Analytics: replace with your tracking snippet (e.g. Plausible, GA4) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=DM+Serif+Display&family=Fredoka:wght@500;600&family=Caveat:wght@600;700&family=DM+Sans:wght@600&family=Fraunces:wght@700&family=Bebas+Neue&family=Anton&family=Lora:wght@600&family=Crimson+Pro:ital@1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --font-body: 'Manrope', sans-serif;
+    --font-logo: 'DM Serif Display', serif;
+    --font-eyebrow: 'Fredoka', sans-serif;
+    --font-script: 'Caveat', cursive;
+    --font-tabs: 'DM Sans', sans-serif;
+    --font-menu-item: 'Fraunces', serif;
+    --font-badge: 'Bebas Neue', sans-serif;
+    --font-cart: 'Anton', sans-serif;
+    --font-heading-alt: 'Lora', serif;
+    --font-story: 'Crimson Pro', serif;
+    --paper:#FAF9F7;
+    --masa:#F0E6D8;
+    --rose:#B5543A;
+    --rose-deep:#5A2E25;
+    --marigold:#E0680E;
+    --ink:#2E1A1B;
+    --ink-soft:#5C4436;
+    --line: rgba(46,26,27,0.14);
+    --pill-bg:#F1ECE6;
   }
-  </script>
-  <!-- Analytics: paste an approved measurement snippet here when available. -->
-  <style>
-    :root {
-      --paper: #f7f1e8;
-      --paper-bright: #fffdf8;
-      --paper-deep: #e8d8c3;
-      --ink: #201515;
-      --ink-muted: #685755;
-      --wine: #6d2931;
-      --wine-dark: #42191e;
-      --wine-light: #a94a4f;
-      --saffron: #e6a136;
-      --line: rgba(66, 25, 30, .16);
-      --shadow: 0 20px 50px rgba(55, 28, 22, .12);
-      --page-width: 1180px;
-      --header-height: 78px;
-      --display: "DM Serif Display", Georgia, serif;
-      --body: "Manrope", Arial, sans-serif;
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing:antialiased;
+  }
+  p{font-family: var(--font-body);}
+  nav.links a, .price{font-family: var(--font-body);}
+  .brand, .section-head h2{font-family: var(--font-logo); font-weight:400;}
+  .eyebrow, .hero-eyebrow{font-family: var(--font-eyebrow);}
+  .hero h1 span{font-family: var(--font-script); font-style:normal; font-weight:700;}
+  .tab{font-family: var(--font-tabs);}
+  .item-info h4{font-family: var(--font-menu-item); font-weight:700;}
+  .hero-badge span, .cart-count{font-family: var(--font-badge); letter-spacing:0.5px;}
+  .cart-head h3{font-family: var(--font-cart); font-weight:400; letter-spacing:0.5px;}
+  .about-text h2{font-family: var(--font-heading-alt);}
+  .about-text p.lead-story{font-family: var(--font-story); font-style:italic;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 24px;}
+
+  /* papel picado divider */
+  .picado{
+    height:22px;
+    background:
+      radial-gradient(circle at 10px 0, transparent 9px, var(--rose) 9.5px) top/20px 22px repeat-x,
+      var(--rose);
+    -webkit-mask: none;
+  }
+  .picado.alt{
+    background:
+      radial-gradient(circle at 10px 0, transparent 9px, var(--marigold) 9.5px) top/20px 22px repeat-x,
+      var(--marigold);
+  }
+
+  /* HEADER */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-size:22px; letter-spacing:0.5px;
+    color:var(--rose-deep);
+  }
+  nav.links{display:flex; gap:28px; font-size:14px; font-weight:600; color:var(--ink-soft);}
+  nav.links a:hover{color:var(--rose-deep);}
+  .cart-btn{
+    position:relative;
+    background:var(--rose-deep); color:#fff;
+    border:none; padding:10px 18px; border-radius:30px;
+    font-weight:600; font-size:14px; cursor:pointer;
+    display:flex; align-items:center; gap:8px;
+  }
+  .cart-count{
+    background:var(--marigold); color:var(--ink);
+    border-radius:50%; width:20px; height:20px;
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:700;
+  }
+  .menu-toggle{display:none; background:none; border:none; font-size:24px; color:var(--rose-deep); cursor:pointer;}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    padding:90px 24px 70px;
+    text-align:center;
+    overflow:hidden;
+    background-color: var(--masa);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/></svg>");
+    background-repeat: repeat;
+  }
+  .hero-eyebrow{
+    display:inline-block;
+    color:var(--rose-deep); font-weight:700; letter-spacing:3px;
+    font-size:12px; text-transform:uppercase; margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(38px, 7vw, 68px);
+    color:var(--ink); line-height:1.05;
+  }
+  .hero h1 span{color:var(--rose-deep); font-style:italic;}
+  .hero p.tag{
+    max-width:520px; margin:22px auto 34px;
+    font-size:17px; color:var(--ink-soft); line-height:1.6;
+  }
+  .hero-cta{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+  .btn{
+    padding:14px 30px; border-radius:32px; font-weight:700; font-size:15px;
+    border:2px solid transparent; cursor:pointer; display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{background:var(--rose-deep); color:#fff;}
+  .btn-primary:hover{background:var(--rose);}
+  .btn-outline{background:transparent; border-color:var(--ink); color:var(--ink);}
+  .btn-outline:hover{background:var(--ink); color:var(--paper);}
+  .hero-badge{
+    margin-top:40px; display:inline-flex; gap:12px; flex-wrap:wrap; justify-content:center;
+    font-size:13px; color:var(--ink-soft); font-weight:600;
+  }
+  .hero-badge span{
+    display:flex; align-items:center; gap:6px;
+    background:var(--pill-bg); border:1px solid var(--line);
+    padding:8px 16px; border-radius:20px;
+  }
+
+  /* ABOUT */
+  .about{
+    padding:80px 24px;
+    display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;
+  }
+  .about-photo{
+    aspect-ratio: 4/5;
+    border-radius:16px;
+    background:var(--masa);
+    border:1px solid var(--ink-soft);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--ink-soft); font-size:15px; font-weight:600; text-align:center; padding:20px;
+  }
+  .about-text .eyebrow{color:var(--marigold); font-weight:700; letter-spacing:2px; font-size:12px; text-transform:uppercase;}
+  .about-text h2{font-size:34px; margin:12px 0 18px; color:var(--rose-deep);}
+  .about-text p{color:var(--ink-soft); line-height:1.75; font-size:16px; margin-bottom:14px;}
+
+  /* MENU */
+  .menu-section{padding:80px 24px; background:var(--masa);}
+  .section-head{text-align:center; margin-bottom:50px;}
+  .section-head .eyebrow{color:var(--rose-deep); font-weight:700; letter-spacing:2px; font-size:12px; text-transform:uppercase;}
+  .section-head h2{font-size:38px; margin-top:10px; color:var(--ink);}
+  .menu-tabs{display:flex; justify-content:center; gap:10px; margin-bottom:40px; flex-wrap:wrap;}
+  .tab{
+    padding:9px 20px; border-radius:24px; font-size:13px; font-weight:700; cursor:pointer;
+    background:#fff; border:1px solid var(--line); color:var(--ink-soft);
+  }
+  .tab.active{background:var(--rose-deep); color:#fff; border-color:var(--rose-deep);}
+  .menu-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px;}
+  .menu-cat{display:none;}
+  .menu-cat.active{display:grid; grid-template-columns:repeat(2,1fr); gap:16px; grid-column:1/-1;}
+  .item{
+    background:#fff; border-radius:14px; padding:20px;
+    display:flex; justify-content:space-between; gap:14px;
+    border:1px solid var(--line);
+  }
+  .item-info h4{font-size:16px; margin-bottom:4px;}
+  .item-info p{font-size:13px; color:var(--ink-soft); line-height:1.5;}
+  .item-side{display:flex; flex-direction:column; align-items:flex-end; gap:8px;}
+  .price{font-weight:700; color:var(--rose-deep); font-size:15px; white-space:nowrap;}
+  .add-btn{
+    background:var(--rose-deep); color:#fff; border:none; border-radius:20px;
+    padding:6px 14px; font-size:12px; font-weight:700; cursor:pointer;
+  }
+  .add-btn:active{transform:scale(0.95);}
+
+  /* GALLERY */
+  .gallery{padding:80px 24px;}
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:240px; gap:14px;
+  }
+  .gallery-grid figure{
+    position:relative; margin:0; border-radius:16px; overflow:hidden;
+    background:var(--masa); border:1px solid var(--ink-soft);
+  }
+  .gallery-grid figure img{
+    width:100%; height:100%; object-fit:cover;
+    transition:transform 0.4s ease;
+  }
+  .gallery-grid figure:hover img{transform:scale(1.04);}
+  .gallery-grid figcaption{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:14px 16px; font-family:var(--font-body); font-size:13px; font-weight:600; color:#fff;
+    background:linear-gradient(to top, rgba(46,26,27,0.75), transparent);
+    opacity:0; transition:opacity 0.3s ease;
+  }
+  .gallery-grid figure:hover figcaption{opacity:1;}
+  .g1{grid-column:span 2; grid-row:span 2;}
+  .g3{grid-column:span 2;}
+  .g6{grid-row:span 2;}
+
+  /* CONTACT */
+  .contact{padding:80px 24px; background:var(--ink); color:var(--paper);}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px;}
+  .contact h2{font-size:36px; margin-bottom:18px; color:var(--marigold);}
+  .contact p.lead{color:#e8dccf; line-height:1.7; margin-bottom:30px; font-size:16px;}
+  .contact-row{display:flex; gap:16px; align-items:flex-start; margin-bottom:22px;}
+  .contact-row .ic{
+    width:40px; height:40px; border-radius:50%; background:rgba(242,160,61,0.15);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--marigold); font-size:18px;
+  }
+  .contact-row h4{font-size:15px; margin-bottom:3px;}
+  .contact-row p, .contact-row a{color:#c9b9a9; font-size:14px;}
+  .call-big{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--marigold); color:var(--ink);
+    padding:16px 28px; border-radius:32px; font-weight:700; font-size:16px; margin-top:10px;
+  }
+  .map-box{
+    border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,0.1);
+  }
+  .map-box iframe{width:100%; height:100%; min-height:340px; border:0;}
+
+  footer{
+    background:var(--ink); color:#a89786; text-align:center;
+    padding:30px 24px; font-size:13px; border-top:1px solid rgba(255,255,255,0.08);
+  }
+  footer .social{display:flex; justify-content:center; gap:18px; margin-bottom:14px;}
+  footer .social a{color:var(--marigold); font-weight:600;}
+
+  /* CART DRAWER */
+  .cart-overlay{
+    position:fixed; inset:0; background:rgba(0,0,0,0.4);
+    display:none; z-index:100;
+  }
+  .cart-overlay.open{display:block;}
+  .cart-drawer{
+    position:fixed; top:0; right:-380px; width:360px; max-width:88vw; height:100%;
+    background:#fff; z-index:101; transition:right 0.3s ease;
+    display:flex; flex-direction:column; box-shadow:-10px 0 30px rgba(0,0,0,0.15);
+  }
+  .cart-drawer.open{right:0;}
+  .cart-head{
+    padding:22px; border-bottom:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .cart-head h3{color:var(--rose-deep);}
+  .cart-close{background:none; border:none; font-size:22px; cursor:pointer; color:var(--ink-soft);}
+  .cart-items{flex:1; overflow-y:auto; padding:18px 22px;}
+  .cart-empty{color:var(--ink-soft); font-size:14px; text-align:center; margin-top:40px;}
+  .cart-line{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:12px 0; border-bottom:1px solid var(--line); font-size:14px;
+  }
+  .cart-line .qty-ctrl{display:flex; align-items:center; gap:8px; margin-top:4px;}
+  .cart-line .qty-ctrl button{
+    width:22px; height:22px; border-radius:50%; border:1px solid var(--line); background:#fff; cursor:pointer;
+  }
+  .cart-foot{padding:20px 22px; border-top:1px solid var(--line);}
+  .cart-total{display:flex; justify-content:space-between; font-weight:700; font-size:16px; margin-bottom:14px;}
+  .checkout-btn{
+    width:100%; background:var(--rose-deep); color:#fff; border:none;
+    padding:14px; border-radius:30px; font-weight:700; font-size:15px; cursor:pointer;
+  }
+  .checkout-note{font-size:12px; color:var(--ink-soft); text-align:center; margin-top:10px;}
+
+  /* STICKY MOBILE CALL BAR */
+  .mobile-call-bar{
+    display:none;
+  }
+
+  @media (max-width:820px){
+    nav.links{display:none;}
+    .menu-toggle{display:block;}
+    .about{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:180px;}
+    .gallery-grid figure{grid-column:span 1 !important; grid-row:span 1 !important;}
+    .menu-cat.active{grid-template-columns:1fr;}
+
+    body{padding-bottom:74px;} /* room for sticky bar */
+    .mobile-call-bar{
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      position:fixed; left:0; right:0; bottom:0; z-index:120;
+      background:var(--rose-deep); color:#fff;
+      padding:16px 20px; font-weight:700; font-size:16px;
+      box-shadow:0 -6px 20px rgba(46,26,27,0.25);
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-height) + 18px); }
-    body {
-      margin: 0;
-      min-width: 320px;
-      overflow-x: hidden;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: var(--body);
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+    .mobile-call-bar .pulse-dot{
+      width:9px; height:9px; border-radius:50%; background:var(--marigold);
+      animation:pulse 1.6s infinite;
     }
-    body.nav-open { overflow: hidden; }
-    a { color: inherit; text-decoration: none; }
-    button { color: inherit; font: inherit; }
-    img { display: block; max-width: 100%; }
-    :focus-visible { outline: 3px solid var(--saffron); outline-offset: 4px; }
-
-    .skip-link {
-      position: fixed;
-      top: 12px;
-      left: 12px;
-      z-index: 999;
-      transform: translateY(-170%);
-      padding: 10px 15px;
-      background: var(--paper-bright);
-      color: var(--wine-dark);
-      border: 1px solid var(--wine);
-      border-radius: 999px;
-      font-size: .8rem;
-      font-weight: 800;
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(224,104,14,0.6);}
+      70%{box-shadow:0 0 0 8px rgba(224,104,14,0);}
+      100%{box-shadow:0 0 0 0 rgba(224,104,14,0);}
     }
-    .skip-link:focus { transform: translateY(0); }
-
-    .container { width: min(var(--page-width), calc(100% - 40px)); margin: 0 auto; }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin: 0 0 16px;
-      color: var(--wine);
-      font-size: .69rem;
-      font-weight: 800;
-      letter-spacing: .15em;
-      line-height: 1.2;
-      text-transform: uppercase;
-    }
-    .eyebrow::before { width: 23px; height: 1px; background: currentColor; content: ""; }
-    .section-heading { max-width: 675px; margin: 0; font-family: var(--display); font-size: clamp(2.25rem, 5vw, 4.3rem); font-weight: 400; letter-spacing: -.04em; line-height: .98; }
-    .section-lede { max-width: 600px; margin: 22px 0 0; color: var(--ink-muted); font-size: 1rem; }
-
-    .button {
-      display: inline-flex;
-      min-height: 50px;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 20px;
-      border: 1px solid transparent;
-      border-radius: 4px;
-      font-size: .82rem;
-      font-weight: 800;
-      letter-spacing: .03em;
-      line-height: 1.2;
-      text-align: center;
-      transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
-    }
-    .button:hover { transform: translateY(-2px); }
-    .button--solid { background: var(--wine); color: #fff; box-shadow: 0 9px 18px rgba(109, 41, 49, .22); }
-    .button--solid:hover { background: var(--wine-dark); }
-    .button--line { border-color: rgba(255,255,255,.58); color: #fff; }
-    .button--line:hover { background: rgba(255,255,255,.12); border-color: #fff; }
-    .button--paper { background: var(--paper-bright); color: var(--wine-dark); }
-    .button--paper:hover { background: var(--paper-deep); }
-    .button--quiet { border-color: var(--line); color: var(--wine-dark); }
-    .button--quiet:hover { background: var(--paper-bright); border-color: var(--wine); }
-    .button svg { width: 17px; height: 17px; flex: none; }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      height: var(--header-height);
-      border-bottom: 1px solid var(--line);
-      background: rgba(247, 241, 232, .94);
-      backdrop-filter: blur(14px);
-    }
-    .header-row { display: flex; height: 100%; align-items: center; justify-content: space-between; gap: 18px; }
-    .brand { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
-    .brand-mark { width: 43px; height: 43px; flex: none; border: 1px solid var(--line); border-radius: 50%; object-fit: cover; box-shadow: 0 4px 12px rgba(66,25,30,.11); }
-    .brand-name { display: block; color: var(--wine-dark); font-family: var(--display); font-size: 1.35rem; letter-spacing: -.025em; line-height: 1; }
-    .brand-location { display: block; margin-top: 3px; color: var(--ink-muted); font-size: .56rem; font-weight: 800; letter-spacing: .12em; line-height: 1; text-transform: uppercase; }
-    .desktop-nav { display: none; }
-    .header-actions { display: flex; align-items: center; gap: 10px; }
-    .header-call { display: none; color: var(--wine-dark); font-size: .76rem; font-weight: 800; letter-spacing: .03em; }
-    .nav-toggle { display: grid; width: 44px; height: 44px; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: transparent; cursor: pointer; }
-    .nav-toggle-lines, .nav-toggle-lines::before, .nav-toggle-lines::after { display: block; width: 18px; height: 1.5px; background: var(--wine-dark); content: ""; transition: transform .2s ease, opacity .2s ease; }
-    .nav-toggle-lines { position: relative; }
-    .nav-toggle-lines::before { position: absolute; top: -6px; left: 0; }
-    .nav-toggle-lines::after { position: absolute; top: 6px; left: 0; }
-    .nav-toggle[aria-expanded="true"] .nav-toggle-lines { background: transparent; }
-    .nav-toggle[aria-expanded="true"] .nav-toggle-lines::before { top: 0; transform: rotate(45deg); }
-    .nav-toggle[aria-expanded="true"] .nav-toggle-lines::after { top: 0; transform: rotate(-45deg); }
-
-    .mobile-nav {
-      position: fixed;
-      z-index: 90;
-      inset: var(--header-height) 0 auto;
-      display: grid;
-      gap: 27px;
-      min-height: calc(100dvh - var(--header-height));
-      padding: 36px max(20px, calc((100vw - var(--page-width)) / 2));
-      transform: translateX(100%);
-      background: var(--wine-dark);
-      color: #fff;
-      transition: transform .28s ease;
-    }
-    .mobile-nav[data-open="true"] { transform: translateX(0); }
-    .mobile-nav__label { margin: 0; color: rgba(255,255,255,.67); font-size: .66rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
-    .mobile-nav__links { display: grid; gap: 4px; }
-    .mobile-nav__links a { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.18); font-family: var(--display); font-size: 2.1rem; line-height: 1; }
-    .mobile-nav__actions { display: grid; gap: 10px; align-self: end; }
-
-    .hero { position: relative; isolation: isolate; overflow: hidden; min-height: min(820px, calc(100svh - var(--header-height) + 44px)); background: #211014; color: #fff; }
-    .hero::selection { background: var(--saffron); color: var(--wine-dark); }
-    .hero::before { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(27,9,12,.95) 0%, rgba(32,10,14,.88) 37%, rgba(36,9,13,.44) 66%, rgba(25,7,10,.16) 100%); content: ""; pointer-events: none; }
-    .hero::after { position: absolute; z-index: 2; inset: 0; background: radial-gradient(circle at 72% 46%, transparent 0 14%, rgba(13,4,6,.16) 43%, rgba(13,4,6,.77) 100%), linear-gradient(180deg, rgba(255,241,216,.11), transparent 16%, rgba(21,5,9,.42) 100%); content: ""; pointer-events: none; }
-    .hero-visual { position: absolute; z-index: 0; inset: -7%; overflow: hidden; perspective: 1500px; transform-style: preserve-3d; background: #211014; will-change: transform; }
-    .hero-visual__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 68% center; transform: scale(1.06); filter: saturate(1.08) contrast(1.03); will-change: transform; }
-    .hero-visual__grain { position: absolute; inset: 0; opacity: .28; background-image: radial-gradient(circle at 1px 1px, rgba(255,244,219,.22) 1px, transparent 1.5px); background-size: 15px 15px; mix-blend-mode: soft-light; }
-    .hero-visual__wash { position: absolute; inset: 0; background: linear-gradient(105deg, rgba(230,161,54,.1), transparent 32% 68%, rgba(109,41,49,.2)), radial-gradient(ellipse at 68% 68%, rgba(248,220,177,.2), transparent 46%); mix-blend-mode: screen; }
-    .hero-stage { position: absolute; z-index: 3; right: max(-4vw, -68px); top: 50%; width: min(52vw, 730px); height: min(56vw, 680px); transform: translateY(-50%); transform-style: preserve-3d; pointer-events: none; will-change: transform; }
-    .hero-stage__panel { position: absolute; display: block; border: 1px solid rgba(255,236,195,.28); transform-style: preserve-3d; box-shadow: inset 0 0 46px rgba(255,240,213,.09), 0 25px 55px rgba(10,1,2,.26); will-change: transform, opacity; }
-    .hero-stage__panel--back { inset: 13% 8% 11% 19%; border-radius: 48% 52% 48% 52% / 54% 47% 53% 46%; background: linear-gradient(135deg, rgba(255,244,217,.18), rgba(138,43,47,.08) 58%, rgba(230,161,54,.17)); transform: rotate(-13deg) rotateY(-17deg) translateZ(-40px); }
-    .hero-stage__panel--middle { inset: 20% 15% 19% 11%; border-radius: 58% 42% 54% 46% / 43% 54% 46% 57%; background: linear-gradient(140deg, rgba(109,41,49,.34), rgba(248,220,177,.1) 47%, rgba(230,161,54,.2)); transform: rotate(18deg) rotateY(17deg) translateZ(32px); }
-    .hero-stage__panel--front { inset: 27% 24% 28% 24%; border-radius: 50%; background: radial-gradient(circle at 35% 28%, rgba(255,248,227,.72), rgba(242,211,162,.23) 30%, rgba(109,41,49,.24) 70%, rgba(35,7,12,.5)); box-shadow: inset 12px 13px 32px rgba(255,255,255,.24), inset -18px -22px 44px rgba(57,7,12,.3), 0 33px 58px rgba(5,1,2,.36); transform: rotate(-7deg) rotateY(-24deg) translateZ(96px); }
-    .hero-stage__arc { position: absolute; right: 8%; top: 7%; width: 74%; height: 76%; border: 1px solid rgba(255,242,213,.35); border-left-color: transparent; border-bottom-color: transparent; border-radius: 50%; transform: rotate(-25deg) translateZ(135px); box-shadow: 0 0 0 21px rgba(255,242,213,.035), 0 0 0 47px rgba(255,242,213,.025); will-change: transform; }
-    .hero-stage__spark { position: absolute; z-index: 2; width: 10px; height: 10px; border-radius: 50%; background: var(--saffron); box-shadow: 0 0 0 9px rgba(230,161,54,.13), 0 0 38px 9px rgba(230,161,54,.48); transform: translateZ(170px); will-change: transform, opacity; }
-    .hero-stage__spark--one { top: 15%; left: 27%; }
-    .hero-stage__spark--two { right: 18%; bottom: 19%; width: 6px; height: 6px; opacity: .78; }
-    .hero-inner { position: relative; z-index: 5; display: grid; min-height: inherit; align-content: center; padding: 76px 0 96px; }
-    .hero-kicker { display: flex; flex-wrap: wrap; gap: 9px; align-items: center; margin-bottom: 25px; font-size: .68rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
-    .hero-kicker::before { width: 9px; height: 9px; border-radius: 50%; background: var(--saffron); box-shadow: 0 0 0 5px rgba(230,161,54,.17); content: ""; }
-    .hero h1 { max-width: 830px; margin: 0; font-family: var(--display); font-size: clamp(3.55rem, 10.6vw, 8.3rem); font-weight: 400; letter-spacing: -.06em; line-height: .82; text-shadow: 0 8px 32px rgba(15,3,5,.2); }
-    .hero h1 em { display: block; margin-top: .2em; color: #f2d3a2; font-style: italic; font-weight: 400; }
-    .hero-description { max-width: 570px; margin: 32px 0 0; color: rgba(255,255,255,.82); font-size: 1rem; line-height: 1.7; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 34px; }
-    .hero-note { display: flex; gap: 10px; max-width: 440px; margin: 27px 0 0; color: rgba(255,255,255,.68); font-size: .76rem; line-height: 1.5; }
-    .hero-note::before { width: 20px; height: 1px; flex: none; margin-top: .65em; background: var(--saffron); content: ""; }
-    @media (max-width: 760px) {
-      .hero { min-height: min(805px, calc(100svh - var(--header-height) + 74px)); }
-      .hero::before { background: linear-gradient(180deg, rgba(27,9,12,.64) 0%, rgba(27,9,12,.74) 51%, rgba(27,9,12,.96) 93%), linear-gradient(90deg, rgba(27,9,12,.72), transparent); }
-      .hero-visual { inset: 0 -40% -5% -12%; }
-      .hero-visual__image { object-position: 69% center; transform: scale(1.1); }
-      .hero-stage { top: 43%; right: -32%; width: 122vw; height: 112vw; opacity: .85; }
-      .hero-stage__panel--back { inset: 12% 11% 12% 19%; }
-      .hero-stage__panel--middle { inset: 18% 17% 20% 12%; }
-      .hero-stage__panel--front { inset: 28% 26% 29% 23%; }
-      .hero-inner { align-content: end; padding: 115px 0 54px; }
-      .hero h1 { font-size: clamp(3.35rem, 16.3vw, 5.35rem); }
-      .hero-description { margin-top: 24px; font-size: .94rem; line-height: 1.58; }
-      .hero-actions { margin-top: 27px; }
-      .hero-note { margin-top: 22px; }
-    }
-    .time-card { position: absolute; z-index: 6; right: 0; bottom: 44px; display: none; width: 225px; padding: 19px 20px; transform: rotate(4deg); background: var(--paper-bright); color: var(--wine-dark); box-shadow: var(--shadow); }
-    .time-card::before, .time-card::after { position: absolute; right: 0; left: 0; height: 7px; background: radial-gradient(circle at 4px 0, transparent 4px, var(--wine-dark) 4.4px) 0 0 / 8px 7px repeat-x; content: ""; }
-    .time-card::before { top: -1px; transform: rotate(180deg); }
-    .time-card::after { bottom: -1px; }
-    .time-card__overline { display: block; margin-bottom: 7px; color: var(--wine); font-size: .6rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-    .time-card strong { display: block; font-family: var(--display); font-size: 1.8rem; font-weight: 400; line-height: 1; }
-    .time-card span:not(.time-card__overline) { display: block; margin-top: 8px; color: var(--ink-muted); font-size: .67rem; font-weight: 700; line-height: 1.35; }
-
-    .ticket-edge { height: 17px; margin-top: -1px; background: radial-gradient(circle at 12px 0, transparent 11px, var(--wine-dark) 11.6px) 0 0 / 24px 17px repeat-x; }
-
-    .intro { padding: 92px 0 88px; }
-    .intro-grid { display: grid; gap: 44px; }
-    .counter-poster { position: relative; min-height: 375px; overflow: hidden; background: var(--paper-deep); box-shadow: var(--shadow); }
-    .counter-poster::before { position: absolute; inset: 16px; border: 1px solid rgba(109,41,49,.27); content: ""; }
-    .counter-poster::after { position: absolute; inset: 0; opacity: .48; background-image: repeating-linear-gradient(0deg, transparent 0 30px, rgba(109,41,49,.12) 31px 32px), repeating-linear-gradient(90deg, transparent 0 30px, rgba(109,41,49,.08) 31px 32px); content: ""; }
-    .poster-copy { position: absolute; z-index: 1; right: 34px; bottom: 32px; left: 34px; }
-    .poster-copy span { display: block; color: var(--wine); font-size: .65rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
-    .poster-copy strong { display: block; max-width: 370px; margin-top: 8px; color: var(--wine-dark); font-family: var(--display); font-size: clamp(2.5rem, 7vw, 4.7rem); font-weight: 400; letter-spacing: -.055em; line-height: .88; }
-    .poster-stamp { position: absolute; z-index: 2; top: 29px; right: 31px; display: grid; width: 112px; height: 112px; place-content: center; transform: rotate(11deg); border: 2px solid var(--wine); border-radius: 50%; color: var(--wine); font-size: .59rem; font-weight: 800; letter-spacing: .09em; line-height: 1.3; text-align: center; text-transform: uppercase; }
-    .intro-copy { display: grid; align-content: center; }
-    .intro-copy .section-heading { color: var(--wine-dark); }
-    .intro-copy .section-lede { max-width: 530px; }
-    .detail-list { display: grid; gap: 0; margin: 30px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
-    .detail-list li { display: grid; grid-template-columns: 102px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); color: var(--ink-muted); font-size: .84rem; }
-    .detail-list b { color: var(--wine-dark); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; }
-
-    .counter-section { padding: 90px 0; background: var(--paper-bright); }
-    .section-head-row { display: grid; gap: 24px; align-items: end; }
-    .counter-actions { display: flex; flex-wrap: wrap; gap: 10px; }
-    .category-tabs { display: flex; gap: 8px; overflow-x: auto; margin: 42px 0 0; padding: 0 0 8px; scrollbar-width: thin; }
-    .category-tab { flex: none; min-height: 43px; padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: var(--ink-muted); cursor: pointer; font-size: .72rem; font-weight: 800; letter-spacing: .02em; transition: background-color .2s ease, color .2s ease, border-color .2s ease; }
-    .category-tab[aria-selected="true"] { border-color: var(--wine); background: var(--wine); color: #fff; }
-    .category-panel { margin-top: 29px; }
-    .category-panel[hidden] { display: none; }
-    .counter-panel { display: grid; gap: 23px; padding: clamp(25px, 5vw, 50px); border: 1px solid var(--line); background: var(--paper); }
-    .counter-panel h3 { max-width: 670px; margin: 0; color: var(--wine-dark); font-family: var(--display); font-size: clamp(2rem, 4.4vw, 3.65rem); font-weight: 400; letter-spacing: -.045em; line-height: .98; }
-    .counter-panel p { max-width: 650px; margin: 0; color: var(--ink-muted); }
-    .counter-panel__meta { display: flex; flex-wrap: wrap; gap: 10px; }
-    .meta-tag { display: inline-flex; align-items: center; min-height: 32px; padding: 5px 10px; border: 1px solid var(--line); color: var(--wine-dark); font-size: .66rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
-    .callout { position: relative; overflow: hidden; padding: 22px 23px; background: var(--wine-dark); color: #fff; }
-    .callout::after { position: absolute; top: -78px; right: -71px; width: 180px; height: 180px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; content: ""; }
-    .callout p { position: relative; z-index: 1; margin: 0; color: rgba(255,255,255,.74); font-size: .82rem; }
-    .callout a { position: relative; z-index: 1; display: inline-block; margin-top: 8px; color: #fff; font-size: .8rem; font-weight: 800; text-decoration: underline; text-decoration-color: var(--saffron); text-decoration-thickness: 2px; text-underline-offset: 4px; }
-
-    .visit-section { padding: 92px 0; background: var(--wine-dark); color: #fff; }
-    .visit-grid { display: grid; gap: 38px; }
-    .visit-section .eyebrow { color: #f2d3a2; }
-    .visit-section .section-heading { color: #fff; }
-    .visit-section .section-lede { color: rgba(255,255,255,.72); }
-    .visit-details { display: grid; align-content: start; gap: 0; border-top: 1px solid rgba(255,255,255,.22); }
-    .visit-detail { display: grid; grid-template-columns: 94px 1fr; gap: 16px; padding: 19px 0; border-bottom: 1px solid rgba(255,255,255,.22); }
-    .visit-detail dt { color: #f2d3a2; font-size: .63rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
-    .visit-detail dd { margin: 0; color: rgba(255,255,255,.85); font-size: .88rem; }
-    .visit-detail dd a { text-decoration: underline; text-decoration-color: rgba(242,211,162,.8); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-    .visit-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
-
-    .instagram-section { padding: 91px 0; }
-    .instagram-card { display: grid; gap: 0; overflow: hidden; border: 1px solid var(--line); background: var(--paper-bright); box-shadow: var(--shadow); }
-    .instagram-art { position: relative; min-height: 245px; overflow: hidden; background: #e4c2b8; }
-    .instagram-art::before { position: absolute; top: 50%; left: 50%; width: 190px; height: 190px; transform: translate(-50%, -50%); border: 17px solid var(--wine); border-radius: 44px; box-shadow: 0 0 0 25px rgba(255,253,248,.5), 0 0 0 51px rgba(109,41,49,.15); content: ""; }
-    .instagram-art::after { position: absolute; top: calc(50% - 51px); left: calc(50% + 21px); width: 25px; height: 25px; border-radius: 50%; background: var(--saffron); box-shadow: -44px 44px 0 8px var(--paper-bright); content: ""; }
-    .instagram-copy { display: grid; align-content: center; padding: clamp(30px, 6vw, 61px); }
-    .instagram-copy h2 { max-width: 530px; margin: 0; color: var(--wine-dark); font-family: var(--display); font-size: clamp(2rem, 4.7vw, 3.8rem); font-weight: 400; letter-spacing: -.04em; line-height: .98; }
-    .instagram-copy p { max-width: 540px; margin: 18px 0 0; color: var(--ink-muted); }
-    .instagram-copy .button { align-self: start; margin-top: 26px; }
-
-    .site-footer { padding: 37px 0 calc(97px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: var(--paper-deep); }
-    .footer-row { display: grid; gap: 22px; }
-    .footer-brand { color: var(--wine-dark); font-family: var(--display); font-size: 1.45rem; letter-spacing: -.03em; }
-    .footer-copy { max-width: 560px; margin: 5px 0 0; color: var(--ink-muted); font-size: .72rem; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 13px 18px; align-items: center; }
-    .footer-links a { color: var(--wine-dark); font-size: .72rem; font-weight: 800; text-decoration: underline; text-decoration-color: rgba(109,41,49,.4); text-underline-offset: 4px; }
-
-    .mobile-dock { position: fixed; z-index: 80; right: 0; bottom: 0; left: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 9px 12px calc(9px + env(safe-area-inset-bottom)); border-top: 1px solid rgba(255,255,255,.22); background: rgba(66,25,30,.96); backdrop-filter: blur(13px); }
-    .mobile-dock .button { min-height: 50px; padding-inline: 10px; font-size: .72rem; }
-    .mobile-dock .button--line { border-color: rgba(255,255,255,.48); }
-
-    @media (min-width: 700px) {
-      .container { width: min(var(--page-width), calc(100% - 64px)); }
-      .intro-grid { grid-template-columns: minmax(0, .96fr) minmax(0, 1fr); align-items: stretch; }
-      .counter-poster { min-height: 515px; }
-      .section-head-row { grid-template-columns: minmax(0, 1fr) auto; }
-      .counter-actions { justify-content: end; }
-      .counter-panel { grid-template-columns: minmax(0, 1.35fr) minmax(250px, .65fr); align-items: end; }
-      .counter-panel > :not(.callout) { grid-column: 1; }
-      .callout { grid-column: 2; grid-row: 1 / span 3; align-self: stretch; display: grid; align-content: center; }
-      .visit-grid { grid-template-columns: minmax(0, 1fr) minmax(400px, .9fr); align-items: end; }
-      .instagram-card { grid-template-columns: minmax(290px, .8fr) minmax(0, 1.2fr); }
-      .instagram-art { min-height: 100%; }
-      .footer-row { grid-template-columns: 1fr auto; align-items: end; }
-      .site-footer { padding-bottom: 38px; }
-      .mobile-dock { display: none; }
-    }
-
-    @media (min-width: 920px) {
-      .desktop-nav { display: flex; gap: 23px; align-items: center; }
-      .desktop-nav a { position: relative; color: var(--ink-muted); font-size: .72rem; font-weight: 800; letter-spacing: .025em; }
-      .desktop-nav a::after { position: absolute; right: 0; bottom: -7px; left: 0; height: 1px; transform: scaleX(0); transform-origin: left; background: var(--wine); content: ""; transition: transform .2s ease; }
-      .desktop-nav a:hover, .desktop-nav a:focus-visible { color: var(--wine-dark); }
-      .desktop-nav a:hover::after, .desktop-nav a:focus-visible::after { transform: scaleX(1); }
-      .header-call { display: inline-flex; }
-      .nav-toggle, .mobile-nav { display: none; }
-      .time-card { display: block; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <header class="site-header">
-    <div class="container header-row">
-      <a class="brand" href="#top" aria-label="Las Rosas Bakery home">
-        <!-- ASSET: Replace favicon-192x192.png with an approved compact logo only if it is a cleaner brand asset. -->
-        <img class="brand-mark" src="favicon-192x192.png" width="43" height="43" alt="Las Rosas Bakery rose mark">
-        <span>
-          <span class="brand-name">Las Rosas</span>
-          <span class="brand-location">Bakery · Sunset Park</span>
-        </span>
-      </a>
-
-      <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#bakery">The Bakery</a>
-        <a href="#counter">At the Counter</a>
-        <a href="#visit">Visit</a>
-        <a href="#updates">Updates</a>
-      </nav>
-
-      <div class="header-actions">
-        <a class="header-call" href="tel:+17184921470">(718) 492-1470</a>
-        <a class="button button--solid" href="tel:+17184921470">Call</a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-navigation" aria-label="Open navigation">
-          <span class="nav-toggle-lines" aria-hidden="true"></span>
-        </button>
-      </div>
+<header>
+  <div class="nav wrap">
+    <div class="brand">
+      <img src="favicon-192x192.png" alt="Rosa's Bakery Logo" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      Rosa's Bakery
     </div>
-  </header>
-
-  <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation" data-open="false">
-    <p class="mobile-nav__label">Las Rosas Bakery</p>
-    <div class="mobile-nav__links">
-      <a href="#bakery">The Bakery</a>
-      <a href="#counter">At the Counter</a>
-      <a href="#visit">Visit</a>
-      <a href="#updates">Updates</a>
-    </div>
-    <div class="mobile-nav__actions">
-      <a class="button button--paper" href="tel:+17184921470">Call (718) 492-1470</a>
-      <a class="button button--line" href="https://www.google.com/maps/dir/?api=1&amp;destination=5824+4th+Ave,+Brooklyn,+NY+11220" target="_blank" rel="noopener noreferrer">Get directions</a>
-    </div>
-  </nav>
-
-  <main id="main-content">
-    <section class="hero" id="top" aria-labelledby="hero-heading">
-      <!-- Local abstract sculptural material in ./assets/visuals/hero-paper-sculpture.jpg is a non-documentary art treatment. It does not depict the bakery, its food, staff, storefront, inventory, or logo. -->
-      <div class="hero-visual" data-hero-visual aria-hidden="true">
-        <img class="hero-visual__image" data-hero-image src="./assets/visuals/hero-paper-sculpture.jpg" width="1536" height="1024" alt="">
-        <span class="hero-visual__grain"></span>
-        <span class="hero-visual__wash"></span>
-      </div>
-      <div class="hero-stage" data-hero-stage aria-hidden="true">
-        <span class="hero-stage__panel hero-stage__panel--back" data-hero-panel="back"></span>
-        <span class="hero-stage__panel hero-stage__panel--middle" data-hero-panel="middle"></span>
-        <span class="hero-stage__panel hero-stage__panel--front" data-hero-panel="front"></span>
-        <span class="hero-stage__arc" data-hero-arc></span>
-        <span class="hero-stage__spark hero-stage__spark--one" data-hero-spark="one"></span>
-        <span class="hero-stage__spark hero-stage__spark--two" data-hero-spark="two"></span>
-      </div>
-      <div class="container hero-inner">
-        <div class="hero-kicker">Sunset Park, Brooklyn · Open 24 hours</div>
-        <h1 id="hero-heading">The bakery<br><em>that keeps the light on.</em></h1>
-        <p class="hero-description">Las Rosas Bakery is an open-24-hours neighborhood bakery at 5824 4th Ave. Established in 1984, it is ready whenever your day—or night—brings you by.</p>
-        <div class="hero-actions">
-          <a class="button button--paper" href="tel:+17184921470">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4.8 3.8h3.1l1.3 4.1-2 1.7a15.9 15.9 0 0 0 7.1 7.1l1.7-2 4.1 1.3v3.1c0 .9-.7 1.6-1.6 1.6C10.5 20.7 3.3 13.5 3.3 5.4c0-.9.7-1.6 1.5-1.6Z"/></svg>
-            Call the bakery
-          </a>
-          <a class="button button--line" href="https://www.google.com/maps/dir/?api=1&amp;destination=5824+4th+Ave,+Brooklyn,+NY+11220" target="_blank" rel="noopener noreferrer">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-            Get directions
-          </a>
-        </div>
-        <p class="hero-note">For today’s availability, the simplest next step is a quick call or a visit to the counter.</p>
-      </div>
-      <aside class="time-card" aria-label="Open twenty-four hours">
-        <span class="time-card__overline">Sunset Park</span>
-        <strong>Open<br>24 hours</strong>
-        <span>5824 4th Ave<br>Brooklyn, NY 11220</span>
-      </aside>
-    </section>
-    <div class="ticket-edge" aria-hidden="true"></div>
-
-    <section class="intro" id="bakery" aria-labelledby="bakery-heading">
-      <div class="container intro-grid">
-        <div class="counter-poster" aria-hidden="true">
-          <div class="poster-stamp">Established<br>1984</div>
-          <div class="poster-copy">
-            <span>5824 Fourth Avenue</span>
-            <strong>A neighborhood<br>counter, any hour.</strong>
-          </div>
-        </div>
-        <div class="intro-copy">
-          <p class="eyebrow">The bakery</p>
-          <h2 class="section-heading" id="bakery-heading">A practical stop, any time of day.</h2>
-          <p class="section-lede">Las Rosas keeps a simple promise that matters in a busy neighborhood: the doors are open around the clock. Stop in on your way through Sunset Park, or call before you come by.</p>
-          <ul class="detail-list" aria-label="Bakery details">
-            <li><b>Address</b><span>5824 4th Ave, Brooklyn, NY 11220</span></li>
-            <li><b>Hours</b><span>Open 24 hours, seven days a week</span></li>
-            <li><b>Call</b><span><a href="tel:+17184921470">(718) 492-1470</a></span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="counter-section" id="counter" aria-labelledby="counter-heading">
-      <div class="container">
-        <div class="section-head-row">
-          <div>
-            <p class="eyebrow">At the counter</p>
-            <h2 class="section-heading" id="counter-heading">Start with what is fresh when you arrive.</h2>
-          </div>
-          <div class="counter-actions">
-            <a class="button button--quiet" href="tel:+17184921470">Ask by phone</a>
-            <a class="button button--solid" href="#visit">Plan your visit</a>
-          </div>
-        </div>
-
-        <div class="category-tabs" role="tablist" aria-label="Ways to visit">
-          <button class="category-tab" type="button" role="tab" id="tab-visit" aria-selected="true" aria-controls="panel-visit">Visit the counter</button>
-          <button class="category-tab" type="button" role="tab" id="tab-call" aria-selected="false" aria-controls="panel-call" tabindex="-1">Call first</button>
-          <button class="category-tab" type="button" role="tab" id="tab-updates" aria-selected="false" aria-controls="panel-updates" tabindex="-1">See updates</button>
-        </div>
-
-        <div class="category-panel" id="panel-visit" role="tabpanel" aria-labelledby="tab-visit">
-          <div class="counter-panel">
-            <h3>Drop in whenever the neighborhood is moving.</h3>
-            <p>With its 24-hour schedule, you can make Las Rosas part of an early morning, a midday errand, or a late-night stop. The best way to see the day’s selection is at the bakery itself.</p>
-            <aside class="callout">
-              <p>Need an answer before you head over?</p>
-              <a href="tel:+17184921470">Call (718) 492-1470</a>
-            </aside>
-            <div class="counter-panel__meta"><span class="meta-tag">Open 24 hours</span><span class="meta-tag">Sunset Park</span></div>
-          </div>
-        </div>
-
-        <div class="category-panel" id="panel-call" role="tabpanel" aria-labelledby="tab-call" hidden>
-          <div class="counter-panel">
-            <h3>A quick call is the clearest way to confirm availability.</h3>
-            <p>Call the bakery before your visit for the most reliable answer about what is available at the counter. For today’s selection, a quick call is the simplest next step.</p>
-            <aside class="callout">
-              <p>Call Las Rosas Bakery directly.</p>
-              <a href="tel:+17184921470">(718) 492-1470</a>
-            </aside>
-            <div class="counter-panel__meta"><span class="meta-tag">Direct phone line</span><span class="meta-tag">No third-party claims</span></div>
-          </div>
-        </div>
-
-        <div class="category-panel" id="panel-updates" role="tabpanel" aria-labelledby="tab-updates" hidden>
-          <div class="counter-panel">
-            <h3>Follow the bakery’s official Instagram for current posts.</h3>
-            <p>Las Rosas Bakery maintains an Instagram account with the address, phone number, and opening hours shown on this page. Use it to check the bakery’s latest public updates.</p>
-            <aside class="callout">
-              <p>Official account</p>
-              <a href="https://www.instagram.com/lasrosasbakery/" target="_blank" rel="noopener noreferrer">@lasrosasbakery</a>
-            </aside>
-            <div class="counter-panel__meta"><span class="meta-tag">Instagram</span><span class="meta-tag">Neighborhood updates</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="visit-section" id="visit" aria-labelledby="visit-heading">
-      <div class="container visit-grid">
-        <div>
-          <p class="eyebrow">Find Las Rosas</p>
-          <h2 class="section-heading" id="visit-heading">The next stop is easy to find.</h2>
-          <p class="section-lede">Plan your route to Fourth Avenue, call on the way, or use the official Instagram profile for the bakery’s latest public posts.</p>
-          <div class="visit-actions">
-            <a class="button button--paper" href="https://www.google.com/maps/dir/?api=1&amp;destination=5824+4th+Ave,+Brooklyn,+NY+11220" target="_blank" rel="noopener noreferrer">Get directions</a>
-            <a class="button button--line" href="tel:+17184921470">Call now</a>
-          </div>
-        </div>
-        <dl class="visit-details">
-          <div class="visit-detail"><dt>Address</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=5824+4th+Ave,+Brooklyn,+NY+11220" target="_blank" rel="noopener noreferrer">5824 4th Ave<br>Brooklyn, NY 11220</a></dd></div>
-          <div class="visit-detail"><dt>Phone</dt><dd><a href="tel:+17184921470">(718) 492-1470</a></dd></div>
-          <div class="visit-detail"><dt>Hours</dt><dd>Open 24 hours</dd></div>
-          <div class="visit-detail"><dt>Instagram</dt><dd><a href="https://www.instagram.com/lasrosasbakery/" target="_blank" rel="noopener noreferrer">@lasrosasbakery</a></dd></div>
-        </dl>
-      </div>
-    </section>
-
-    <section class="instagram-section" id="updates" aria-labelledby="updates-heading">
-      <div class="container instagram-card">
-        <div class="instagram-art" aria-hidden="true"></div>
-        <div class="instagram-copy">
-          <p class="eyebrow">Official updates</p>
-          <h2 id="updates-heading">Stay connected to the counter.</h2>
-          <p>Follow Las Rosas Bakery’s official Instagram for its latest public posts and bakery updates. The link opens in a new tab.</p>
-          <a class="button button--solid" href="https://www.instagram.com/lasrosasbakery/" target="_blank" rel="noopener noreferrer">
-            Visit @lasrosasbakery
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 5h5v5"/><path d="m19 5-9 9"/><path d="M19 14v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h4"/></svg>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-row">
-      <div>
-        <div class="footer-brand">Las Rosas Bakery</div>
-        <p class="footer-copy">5824 4th Ave, Brooklyn, NY 11220 · Open 24 hours · Established 1984</p>
-      </div>
-      <div class="footer-links">
-        <a href="tel:+17184921470">Call</a>
-        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=5824+4th+Ave,+Brooklyn,+NY+11220" target="_blank" rel="noopener noreferrer">Directions</a>
-        <a href="https://www.instagram.com/lasrosasbakery/" target="_blank" rel="noopener noreferrer">Instagram</a>
-      </div>
-    </div>
-  </footer>
-
-  <div class="mobile-dock" aria-label="Quick actions">
-    <a class="button button--line" href="tel:+17184921470">Call the bakery</a>
-    <a class="button button--paper" href="https://www.google.com/maps/dir/?api=1&amp;destination=5824+4th+Ave,+Brooklyn,+NY+11220" target="_blank" rel="noopener noreferrer">Directions</a>
+    <nav class="links">
+      <a href="#about">Our Story</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Visit Us</a>
+    </nav>
+    <button class="cart-btn" onclick="toggleCart(true)">
+      🧺 Cart <span class="cart-count" id="cartCount">0</span>
+    </button>
   </div>
+</header>
 
-  <script>
-    (() => {
-      const navToggle = document.querySelector('.nav-toggle');
-      const mobileNav = document.getElementById('mobile-navigation');
-      const navLinks = mobileNav.querySelectorAll('a');
-      let lastFocusedElement = null;
+<div class="picado"></div>
 
-      const setNavigation = (open) => {
-        mobileNav.dataset.open = String(open);
-        navToggle.setAttribute('aria-expanded', String(open));
-        navToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-        document.body.classList.toggle('nav-open', open);
-        if (open) {
-          lastFocusedElement = document.activeElement;
-          const firstLink = mobileNav.querySelector('a');
-          window.setTimeout(() => firstLink.focus(), 0);
-        } else if (lastFocusedElement) {
-          lastFocusedElement.focus();
-        }
-      };
+<section class="hero">
+  <div class="hero-eyebrow">Sunset Park, Brooklyn · Open 24 Hours</div>
+  <h1>Fresh from the oven,<br><span>every hour, every day.</span></h1>
+  <p class="tag">Handmade conchas, churros, and tres leches — plus tamales, empanadas, and champurrado, baked around the clock at 5824 4th Ave.</p>
+  <div class="hero-cta">
+    <a href="tel:+17184921470" class="btn btn-primary">📞 Call to Order</a>
+    <a href="#menu" class="btn btn-outline">View Menu</a>
+  </div>
+  <div class="hero-badge">
+    <span>⭐ 4.0 rated on Google</span>
+    <span>🕐 Open 24 Hours</span>
+    <span>💵 Cash accepted</span>
+  </div>
+</section>
 
-      navToggle.addEventListener('click', () => setNavigation(navToggle.getAttribute('aria-expanded') !== 'true'));
-      navLinks.forEach((link) => link.addEventListener('click', () => setNavigation(false)));
-      document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') setNavigation(false);
-      });
-      window.addEventListener('resize', () => {
-        if (window.innerWidth >= 920 && navToggle.getAttribute('aria-expanded') === 'true') setNavigation(false);
-      });
+<div class="picado alt"></div>
 
-      const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
-      const panels = tabs.map((tab) => document.getElementById(tab.getAttribute('aria-controls')));
-      const activateTab = (selectedTab) => {
-        tabs.forEach((tab, index) => {
-          const selected = tab === selectedTab;
-          tab.setAttribute('aria-selected', String(selected));
-          tab.tabIndex = selected ? 0 : -1;
-          panels[index].hidden = !selected;
-        });
-        selectedTab.focus();
-      };
+<section class="about" id="about">
+  <div class="about-photo">Photo of storefront<br>& fresh pan dulce case</div>
+  <div class="about-text">
+    <div class="eyebrow">Our Story</div>
+    <h2>A Sunset Park staple, baked with tradition</h2>
+    <p class="lead-story">Rosa's Bakery has become a neighborhood fixture in Sunset Park, serving authentic Mexican pastries and bakery classics made fresh daily. From conchas and bolillos to made-to-order tamales, every item comes from recipes rooted in tradition.</p>
+    <p>Popular items sell out quickly, so regulars know to stop in early — though with doors open 24 hours, there's always another fresh batch coming out of the oven.</p>
+  </div>
+</section>
 
-      tabs.forEach((tab, index) => {
-        tab.addEventListener('click', () => activateTab(tab));
-        tab.addEventListener('keydown', (event) => {
-          if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
-          event.preventDefault();
-          let nextIndex = index;
-          if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
-          if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
-          if (event.key === 'Home') nextIndex = 0;
-          if (event.key === 'End') nextIndex = tabs.length - 1;
-          activateTab(tabs[nextIndex]);
-        });
-      });
+<section class="menu-section" id="menu">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Fresh Daily</div>
+      <h2>Our Menu</h2>
+    </div>
+    <div class="menu-tabs">
+      <div class="tab active" onclick="showCat('pan')">Pan Dulce</div>
+      <div class="tab" onclick="showCat('savory')">Savory</div>
+      <div class="tab" onclick="showCat('drinks')">Drinks</div>
+      <div class="tab" onclick="showCat('cakes')">Custom Cakes</div>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-cat active" id="pan">
+        <div class="item">
+          <div class="item-info"><h4>Concha</h4><p>Classic sweet bread with vanilla or chocolate shell</p></div>
+          <div class="item-side"><span class="price">$2.25</span><button class="add-btn" onclick="addItem('Concha',2.25)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Churros (3pc)</h4><p>Cinnamon sugar, fried to order</p></div>
+          <div class="item-side"><span class="price">$3.50</span><button class="add-btn" onclick="addItem('Churros',3.50)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Tres Leches Slice</h4><p>Soaked sponge cake, whipped cream</p></div>
+          <div class="item-side"><span class="price">$4.75</span><button class="add-btn" onclick="addItem('Tres Leches Slice',4.75)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Bolillo</h4><p>Fresh-baked crusty roll</p></div>
+          <div class="item-side"><span class="price">$1.25</span><button class="add-btn" onclick="addItem('Bolillo',1.25)">Add</button></div>
+        </div>
+      </div>
+      <div class="menu-cat" id="savory">
+        <div class="item">
+          <div class="item-info"><h4>Tamales</h4><p>Made to order, ask for today's filling</p></div>
+          <div class="item-side"><span class="price">$3.00</span><button class="add-btn" onclick="addItem('Tamales',3.00)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Empanada</h4><p>Savory hand pie, rotating fillings</p></div>
+          <div class="item-side"><span class="price">$3.25</span><button class="add-btn" onclick="addItem('Empanada',3.25)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Torta</h4><p>Fresh bolillo sandwich, choice of filling</p></div>
+          <div class="item-side"><span class="price">$8.50</span><button class="add-btn" onclick="addItem('Torta',8.50)">Add</button></div>
+        </div>
+      </div>
+      <div class="menu-cat" id="drinks">
+        <div class="item">
+          <div class="item-info"><h4>Champurrado</h4><p>Warm Mexican chocolate drink</p></div>
+          <div class="item-side"><span class="price">$3.75</span><button class="add-btn" onclick="addItem('Champurrado',3.75)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Horchata</h4><p>Rice milk, cinnamon</p></div>
+          <div class="item-side"><span class="price">$3.25</span><button class="add-btn" onclick="addItem('Horchata',3.25)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Iced Coffee</h4><p>House favorite, bold and smooth</p></div>
+          <div class="item-side"><span class="price">$3.00</span><button class="add-btn" onclick="addItem('Iced Coffee',3.00)">Add</button></div>
+        </div>
+      </div>
+      <div class="menu-cat" id="cakes">
+        <div class="item">
+          <div class="item-info"><h4>Custom Cake (small)</h4><p>Serves 8–10, call to place order</p></div>
+          <div class="item-side"><span class="price">from $35</span><button class="add-btn" onclick="addItem('Custom Cake (small)',35)">Add</button></div>
+        </div>
+        <div class="item">
+          <div class="item-info"><h4>Party Platter</h4><p>Assorted pan dulce, serves 15+</p></div>
+          <div class="item-side"><span class="price">from $28</span><button class="add-btn" onclick="addItem('Party Platter',28)">Add</button></div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:30px; font-size:13px; color:var(--ink-soft);">Cash only in-store · A $1 container fee applies to cupcakes and cake slices</p>
+    <div class="menu-tabs" style="margin-top:36px;">
+      <div class="tab active" onclick="jumpCat('pan')">Pan Dulce</div>
+      <div class="tab" onclick="jumpCat('savory')">Savory</div>
+      <div class="tab" onclick="jumpCat('drinks')">Drinks</div>
+      <div class="tab" onclick="jumpCat('cakes')">Custom Cakes</div>
+    </div>
+  </div>
+</section>
 
-      const initialiseHeroMotion = () => {
-        const hero = document.querySelector('.hero');
-        const visual = document.querySelector('[data-hero-visual]');
-        const image = document.querySelector('[data-hero-image]');
-        const stage = document.querySelector('[data-hero-stage]');
-        const panels = Array.from(document.querySelectorAll('[data-hero-panel]'));
-        const arc = document.querySelector('[data-hero-arc]');
-        const sparks = Array.from(document.querySelectorAll('[data-hero-spark]'));
-        if (!hero || !visual || !image || !stage || !window.gsap || !window.ScrollTrigger) return;
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Take a Look</div>
+      <h2>From Our Case &amp; Kitchen</h2>
+    </div>
+    <div class="gallery-grid">
+      <figure class="g1"><img src="https://placehold.co/600x600/F0E6D8/5C4436?text=Pan+Dulce+Case" alt="Pan Dulce Case"><figcaption>Pan Dulce Case</figcaption></figure>
+      <figure class="g2"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Fresh+Churros" alt="Fresh Churros"><figcaption>Fresh Churros</figcaption></figure>
+      <figure class="g3"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Storefront" alt="Storefront"><figcaption>Storefront</figcaption></figure>
+      <figure class="g4"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Tres+Leches" alt="Tres Leches"><figcaption>Tres Leches</figcaption></figure>
+      <figure class="g5"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Custom+Cake" alt="Custom Cake"><figcaption>Custom Cake</figcaption></figure>
+      <figure class="g6"><img src="https://placehold.co/600x600/F0E6D8/5C4436?text=Tamales" alt="Tamales"><figcaption>Tamales</figcaption></figure>
+      <figure class="g7"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Morning+Bake" alt="Morning Bake"><figcaption>Morning Bake</figcaption></figure>
+      <figure class="g8"><img src="https://placehold.co/600x400/F0E6D8/5C4436?text=Interior" alt="Interior"><figcaption>Interior</figcaption></figure>
+    </div>
+  </div>
+</section>
 
-        const heroMedia = gsap.matchMedia();
-        heroMedia.add(
-          {
-            isDesktop: '(min-width: 761px)',
-            isMobile: '(max-width: 760px)',
-            reduceMotion: '(prefers-reduced-motion: reduce)'
-          },
-          (context) => {
-            const { isDesktop, reduceMotion } = context.conditions;
-            if (reduceMotion) return;
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Visit Rosa's</h2>
+      <p class="lead">Open around the clock in Sunset Park. Stop by for fresh pan dulce any hour, or call ahead for tamales, tortas, and custom cakes.</p>
 
-            gsap.set(image, { scale: isDesktop ? 1.06 : 1.1, transformOrigin: '68% 50%' });
-            gsap.set(stage, { transformPerspective: 1500, transformOrigin: '58% 50%' });
-            gsap.set(panels, { transformOrigin: '50% 50%' });
+      <div class="contact-row">
+        <div class="ic">📍</div>
+        <div><h4>Address</h4><p>5824 4th Ave, Brooklyn, NY 11220</p></div>
+      </div>
+      <div class="contact-row">
+        <div class="ic">🕐</div>
+        <div><h4>Hours</h4><p>Open 24 Hours, 7 days a week</p></div>
+      </div>
+      <div class="contact-row">
+        <div class="ic">💵</div>
+        <div><h4>Payment</h4><p>Cash only</p></div>
+      </div>
 
-            const motion = gsap.timeline({
-              defaults: { ease: 'none' },
-              scrollTrigger: {
-                trigger: hero,
-                start: 'top top',
-                end: 'bottom top',
-                scrub: isDesktop ? .72 : .5,
-                invalidateOnRefresh: true
-              }
-            });
+      <a href="tel:+17184921470" class="call-big">📞 (718) 492-1470</a>
+    </div>
+    <div class="map-box">
+      <iframe src="https://maps.google.com/maps?q=5824%204th%20Ave%2C%20Brooklyn%2C%20NY%2011220&t=&z=15&ie=UTF8&iwloc=&output=embed" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
 
-            motion
-              .to(image, { scale: isDesktop ? 1.19 : 1.15, xPercent: isDesktop ? -5 : -3, yPercent: isDesktop ? -4 : -2 }, 0)
-              .to(visual, { rotation: isDesktop ? -1.5 : -.8, yPercent: isDesktop ? -3 : -1 }, 0)
-              .to(stage, { yPercent: isDesktop ? -58 : -54, rotationY: isDesktop ? -29 : -14, rotationX: isDesktop ? 8 : 4, rotation: isDesktop ? -9 : -4, scale: isDesktop ? 1.12 : 1.03 }, 0)
-              .to(panels[0], { xPercent: -18, yPercent: -13, rotation: -21, rotationY: -17, scale: 1.07 }, 0)
-              .to(panels[1], { xPercent: 24, yPercent: 16, rotation: 29, rotationY: 26, scale: .9 }, 0)
-              .to(panels[2], { xPercent: -11, yPercent: 25, rotation: -15, rotationY: -38, scale: 1.18 }, 0)
-              .to(arc, { rotation: 33, rotationY: 24, scale: 1.11 }, 0)
-              .to(sparks[0], { xPercent: 145, yPercent: -170, scale: 1.9, autoAlpha: .72 }, 0)
-              .to(sparks[1], { xPercent: -150, yPercent: 125, scale: .55, autoAlpha: 0 }, 0);
-          }
-        );
-      };
+<footer>
+  <div class="social"><a href="#">Instagram</a></div>
+  <p>© 2026 Rosa's Bakery · 5824 4th Ave, Brooklyn, NY 11220 · (718) 492-1470</p>
+</footer>
 
-      const initialiseMotion = () => {
-        if (!window.gsap || !window.ScrollTrigger) return;
-        gsap.registerPlugin(ScrollTrigger);
-        initialiseHeroMotion();
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        gsap.utils.toArray('.intro, .counter-section, .visit-section, .instagram-section').forEach((section) => {
-          gsap.from(section.querySelectorAll('.section-heading, .section-lede, .counter-poster, .counter-panel, .visit-details, .instagram-card'), { autoAlpha: 0, y: 22, stagger: .08, duration: .55, ease: 'power2.out', scrollTrigger: { trigger: section, start: 'top 78%' } });
-        });
-      };
-      window.addEventListener('load', initialiseMotion, { once: true });
-    })();
-  </script>
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart(false)"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-head">
+    <h3>Your Order</h3>
+    <button class="cart-close" onclick="toggleCart(false)">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <p class="cart-empty">Your cart is empty. Add something fresh!</p>
+  </div>
+  <div class="cart-foot">
+    <div class="cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+    <button class="checkout-btn" onclick="checkout()">Review &amp; Call to Order</button>
+    <p class="checkout-note">Online cart is for planning your order — checkout finalizes by phone.</p>
+  </div>
+</div>
+
+<a href="tel:+17184921470" class="mobile-call-bar">
+  <span class="pulse-dot"></span> 📞 Call Now to Order — (718) 492-1470
+</a>
+
+<script>
+  let cart = JSON.parse(localStorage.getItem('rosasCart') || '{}');
+
+  function saveCart(){
+    localStorage.setItem('rosasCart', JSON.stringify(cart));
+  }
+  function addItem(name, price){
+    if(cart[name]) cart[name].qty += 1;
+    else cart[name] = {price, qty:1};
+    saveCart();
+    renderCart();
+    toggleCart(true);
+  }
+  function changeQty(name, delta){
+    if(!cart[name]) return;
+    cart[name].qty += delta;
+    if(cart[name].qty <= 0) delete cart[name];
+    saveCart();
+    renderCart();
+  }
+  function renderCart(){
+    const itemsEl = document.getElementById('cartItems');
+    const keys = Object.keys(cart);
+    let count = 0, total = 0;
+    if(keys.length === 0){
+      itemsEl.innerHTML = '<p class="cart-empty">Your cart is empty. Add something fresh!</p>';
+    } else {
+      itemsEl.innerHTML = keys.map(name => {
+        const it = cart[name];
+        count += it.qty;
+        total += it.qty * it.price;
+        return `<div class="cart-line">
+          <div>
+            <div>${name}</div>
+            <div class="qty-ctrl">
+              <button onclick="changeQty('${name}',-1)">-</button>
+              <span>${it.qty}</span>
+              <button onclick="changeQty('${name}',1)">+</button>
+            </div>
+          </div>
+          <div>$${(it.qty*it.price).toFixed(2)}</div>
+        </div>`;
+      }).join('');
+    }
+    document.getElementById('cartCount').textContent = count;
+    document.getElementById('cartTotal').textContent = '$' + total.toFixed(2);
+  }
+  function toggleCart(open){
+    document.getElementById('cartDrawer').classList.toggle('open', open);
+    document.getElementById('cartOverlay').classList.toggle('open', open);
+  }
+  function checkout(){
+    if(Object.keys(cart).length === 0){ alert('Add an item first!'); return; }
+    let summary = 'Order summary:\n';
+    let total = 0;
+    for(const [name, it] of Object.entries(cart)){
+      summary += `${it.qty} x ${name} - $${(it.qty*it.price).toFixed(2)}\n`;
+      total += it.qty*it.price;
+    }
+    summary += `Total: $${total.toFixed(2)}\n\nCall (718) 492-1470 to place this order.`;
+    alert(summary);
+  }
+  renderCart();
+  function showCat(id){
+    document.querySelectorAll('.menu-cat').forEach(el => el.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.tab').forEach(el => {
+      el.classList.toggle('active', el.getAttribute('onclick').includes("'"+id+"'"));
+    });
+  }
+  function jumpCat(id){
+    document.getElementById('menu').scrollIntoView({behavior:'smooth'});
+    showCat(id);
+  }
+</script>
+
 </body>
 </html>
